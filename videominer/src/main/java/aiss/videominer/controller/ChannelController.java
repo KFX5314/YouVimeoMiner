@@ -1,6 +1,5 @@
 package aiss.videominer.controller;
 
-import aiss.videominer.model.Caption;
 import aiss.videominer.model.Channel;
 import aiss.videominer.repository.ChannelRepository;
 import jakarta.validation.Valid;
