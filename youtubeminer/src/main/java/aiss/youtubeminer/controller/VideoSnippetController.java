@@ -20,6 +20,7 @@ public class VideoSnippetController
     CommentService commentService;
 
     // GET http://localhost:8082/youtubeminer/channels/{channelId}
+    // EJEMPLO DE GET: http://localhost:8082/youtubeminer/channels/UC_slDWTPHflhuZqbGc8u4yA?maxVideos=10&maxComments=10
     @GetMapping("/channels/{channelId}")
     public List<VideoSnippet> getVideosFromChannel(@PathVariable(value="channelId") String channelId,
                                                    @RequestParam(defaultValue = "10") int maxVideos,
