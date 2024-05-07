@@ -1,8 +1,7 @@
 package aiss.youtubeminer.service;
 
-
-import aiss.youtubeminer.model.youtube.channel.Channel;
 import aiss.youtubeminer.model.youtube.videoSnippet.VideoSnippet;
+import aiss.youtubeminer.model.youtube.videoSnippet.VideoSnippetSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -15,36 +14,33 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-
-public class VideoSnippetService
-{
-    private String APIKEY = "API_KEY";
-    private String baseURI = "https://www.googleapis.com/youtube/v3/";
+public class VideoSnippetService {
 
     @Autowired
-    RestTemplate restTemplate;
+    private RestTemplate restTemplate;
 
-    public Channel getChannel(Integer id)
+    public List<VideoSnippet> getVideosFromChannel(String id, Integer maxVideos, String APIKEY)
     {
-        String uri = baseURI + "channels/" + id;
-
-        //Create request
+        String baseURI = "https://www.googleapis.com/youtube/v3/";
+        String uri = baseURI + "search?part=snippet&channelId=" + id + "&maxResults=" + maxVideos;
+        //System.out.println(uri);
+        // Create request
         HttpHeaders headers = new HttpHeaders();
-        headers.set("X-goog-api-key",APIKEY );
-        HttpEntity<Channel> request = new HttpEntity<>(null, headers);
+        headers.set("X-goog-api-key", APIKEY);
+        HttpEntity<String> requestEntity = new HttpEntity<>(headers);
 
-        //Send request
-        ResponseEntity<Channel> channel = restTemplate.exchange(uri, HttpMethod.GET, request, Channel.class);
-        return channel.getBody();
-    }
-    public List<VideoSnippet> getVideosFromChannel(Integer id, Integer maxVideos, Integer maxComments)
-    {
-        List<VideoSnippet> videos = new ArrayList<>();
-        //Sacar canal
-        videos = getChannel(id).getVideos().subList(0,maxVideos);//Limitar videos
-        //Limitar comentarios
-        videos.forEach(v -> v.getComments().subList(0, maxComments));
+        // Send request and deserialize response into VideoSnippetSearch
+        ResponseEntity<VideoSnippetSearch> responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, VideoSnippetSearch.class);
+        VideoSnippetSearch videoSnippetSearch = responseEntity.getBody();
 
-        return videos;
+        // Extract VideoSnippet items from VideoSnippetSearch
+        List<VideoSnippet> videoSnippets = new ArrayList<>();
+        //Assert no null
+        if (videoSnippetSearch != null && videoSnippetSearch.getItems() != null)
+        {
+            videoSnippets.addAll(videoSnippetSearch.getItems());
+        }
+
+        return videoSnippets;
     }
 }
