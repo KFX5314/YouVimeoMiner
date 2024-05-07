@@ -19,8 +19,6 @@ public class Channel {
     private String modifiedTime;
     @JsonProperty("user")
     private User user;
-    @JsonProperty("categories")
-    private List<Object> categories;
 
     @JsonProperty("uri")
     public String getUri() {
@@ -82,16 +80,6 @@ public class Channel {
         this.user = user;
     }
 
-    @JsonProperty("categories")
-    public List<Object> getCategories() {
-        return categories;
-    }
-
-    @JsonProperty("categories")
-    public void setCategories(List<Object> categories) {
-        this.categories = categories;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -119,10 +107,6 @@ public class Channel {
         sb.append("user");
         sb.append('=');
         sb.append(((this.user == null)?"<null>":this.user));
-        sb.append(',');
-        sb.append("categories");
-        sb.append('=');
-        sb.append(((this.categories == null)?"<null>":this.categories));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
