@@ -1,10 +1,13 @@
 package aiss.vimeominer.service;
 
 import aiss.vimeominer.model.Channel;
+import aiss.vimeominer.model.VideoList;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -15,21 +18,26 @@ class ChannelServiceTest {
     ChannelService channelService;
 
     @Test
+    @DisplayName("Find all channels")
+    void findAllChannels() {
+        List<Channel> channelList = channelService.findAllChannels();
+        assertNotNull(channelList, "The channelList is null");
+        System.out.println(channelList);
+    }
+
+    @Test
     @DisplayName("Find channel by ID")
     void findChannel() {
-        Channel channel = channelService.findChannel(1001);
-        assertNotNull(channel, "The user is null");
+        Channel channel = channelService.findChannel("1902450");
+        assertNotNull(channel, "The channel is null");
         System.out.println(channel);
     }
-    /*@Test
-    @DisplayName("Create a new User")
-    void postUser() {
-        User user = new User();
-        user.setFirstName("John");
-        user.setLastName("Doe");
-        user.setEmail("johndoe4@gmail.com");
-        service.postUser(user);
-        System.out.println(user);
+
+    @Test
+    @DisplayName("Get videos from a channel")
+    void getVideosFromChannel() {
+        VideoList videoList = channelService.getVideosFromChannel("newyorker");
+        assertNotNull(videoList, "The videoList is null");
+        System.out.println(videoList);
     }
-     */
 }

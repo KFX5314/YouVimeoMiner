@@ -23,14 +23,8 @@ public class Channel {
     private User user;
     @JsonProperty("tags")
     private List<Object> tags;
-    @JsonProperty("pictures")
-    private Pictures pictures;
-    @JsonProperty("header")
-    private Header header;
     @JsonProperty("categories")
     private List<Object> categories;
-    @JsonProperty("resource_key")
-    private String resourceKey;
 
     @JsonProperty("uri")
     public String getUri() {
@@ -112,26 +106,6 @@ public class Channel {
         this.tags = tags;
     }
 
-    @JsonProperty("pictures")
-    public Pictures getPictures() {
-        return pictures;
-    }
-
-    @JsonProperty("pictures")
-    public void setPictures(Pictures pictures) {
-        this.pictures = pictures;
-    }
-
-    @JsonProperty("header")
-    public Header getHeader() {
-        return header;
-    }
-
-    @JsonProperty("header")
-    public void setHeader(Header header) {
-        this.header = header;
-    }
-
     @JsonProperty("categories")
     public List<Object> getCategories() {
         return categories;
@@ -140,16 +114,6 @@ public class Channel {
     @JsonProperty("categories")
     public void setCategories(List<Object> categories) {
         this.categories = categories;
-    }
-
-    @JsonProperty("resource_key")
-    public String getResourceKey() {
-        return resourceKey;
-    }
-
-    @JsonProperty("resource_key")
-    public void setResourceKey(String resourceKey) {
-        this.resourceKey = resourceKey;
     }
 
     @Override
@@ -188,21 +152,9 @@ public class Channel {
         sb.append('=');
         sb.append(((this.tags == null)?"<null>":this.tags));
         sb.append(',');
-        sb.append("pictures");
-        sb.append('=');
-        sb.append(((this.pictures == null)?"<null>":this.pictures));
-        sb.append(',');
-        sb.append("header");
-        sb.append('=');
-        sb.append(((this.header == null)?"<null>":this.header));
-        sb.append(',');
         sb.append("categories");
         sb.append('=');
         sb.append(((this.categories == null)?"<null>":this.categories));
-        sb.append(',');
-        sb.append("resourceKey");
-        sb.append('=');
-        sb.append(((this.resourceKey == null)?"<null>":this.resourceKey));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

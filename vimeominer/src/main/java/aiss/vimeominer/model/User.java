@@ -20,14 +20,6 @@ public class User {
     private String bio;
     @JsonProperty("created_time")
     private String createdTime;
-    @JsonProperty("pictures")
-    private List<Pictures> pictures;
-    @JsonProperty("websites")
-    private List<Object> websites;
-    @JsonProperty("resource_key")
-    private String resourceKey;
-    @JsonProperty("account")
-    private String account;
 
     @JsonProperty("uri")
     public String getUri() {
@@ -99,46 +91,6 @@ public class User {
         this.createdTime = createdTime;
     }
 
-    @JsonProperty("pictures")
-    public List<Pictures> getPictures() {
-        return pictures;
-    }
-
-    @JsonProperty("pictures")
-    public void setPictures(List<Pictures> pictures) {
-        this.pictures = pictures;
-    }
-
-    @JsonProperty("websites")
-    public List<Object> getWebsites() {
-        return websites;
-    }
-
-    @JsonProperty("websites")
-    public void setWebsites(List<Object> websites) {
-        this.websites = websites;
-    }
-
-    @JsonProperty("resource_key")
-    public String getResourceKey() {
-        return resourceKey;
-    }
-
-    @JsonProperty("resource_key")
-    public void setResourceKey(String resourceKey) {
-        this.resourceKey = resourceKey;
-    }
-
-    @JsonProperty("account")
-    public String getAccount() {
-        return account;
-    }
-
-    @JsonProperty("account")
-    public void setAccount(String account) {
-        this.account = account;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -170,22 +122,6 @@ public class User {
         sb.append("createdTime");
         sb.append('=');
         sb.append(((this.createdTime == null)?"<null>":this.createdTime));
-        sb.append(',');
-        sb.append("pictures");
-        sb.append('=');
-        sb.append(((this.pictures == null)?"<null>":this.pictures));
-        sb.append(',');
-        sb.append("websites");
-        sb.append('=');
-        sb.append(((this.websites == null)?"<null>":this.websites));
-        sb.append(',');
-        sb.append("resourceKey");
-        sb.append('=');
-        sb.append(((this.resourceKey == null)?"<null>":this.resourceKey));
-        sb.append(',');
-        sb.append("account");
-        sb.append('=');
-        sb.append(((this.account == null)?"<null>":this.account));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');
