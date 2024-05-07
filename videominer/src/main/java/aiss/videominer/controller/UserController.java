@@ -40,7 +40,7 @@ public class UserController {
         return user.get();
     }
 
-    // GET http://localhost:8080/videominer/comments/{id}/author
+    // GET http://localhost:8080/videominer/comments/{id}/user
     @GetMapping("/comments/{id}/user")
     public User findAuthor(@PathVariable String id) throws CommentNotFoundException {
         Optional<Comment> comment = commentRepository.findById(id);
