@@ -18,12 +18,8 @@ public class Video {
     private String type;
     @JsonProperty("duration")
     private Integer duration;
-    @JsonProperty("width")
-    private Integer width;
     @JsonProperty("language")
     private String language;
-    @JsonProperty("height")
-    private Integer height;
     @JsonProperty("created_time")
     private String createdTime;
     @JsonProperty("modified_time")
@@ -85,16 +81,6 @@ public class Video {
         this.duration = duration;
     }
 
-    @JsonProperty("width")
-    public Integer getWidth() {
-        return width;
-    }
-
-    @JsonProperty("width")
-    public void setWidth(Integer width) {
-        this.width = width;
-    }
-
     @JsonProperty("language")
     public String getLanguage() {
         return language;
@@ -103,16 +89,6 @@ public class Video {
     @JsonProperty("language")
     public void setLanguage(String language) {
         this.language = language;
-    }
-
-    @JsonProperty("height")
-    public Integer getHeight() {
-        return height;
-    }
-
-    @JsonProperty("height")
-    public void setHeight(Integer height) {
-        this.height = height;
     }
 
     @JsonProperty("created_time")
@@ -189,17 +165,9 @@ public class Video {
         sb.append('=');
         sb.append(((this.duration == null)?"<null>":this.duration));
         sb.append(',');
-        sb.append("width");
-        sb.append('=');
-        sb.append(((this.width == null)?"<null>":this.width));
-        sb.append(',');
         sb.append("language");
         sb.append('=');
         sb.append(((this.language == null)?"<null>":this.language));
-        sb.append(',');
-        sb.append("height");
-        sb.append('=');
-        sb.append(((this.height == null)?"<null>":this.height));
         sb.append(',');
         sb.append("createdTime");
         sb.append('=');

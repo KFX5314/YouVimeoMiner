@@ -28,7 +28,7 @@ class ChannelServiceTest {
     @Test
     @DisplayName("Find channel by ID")
     void findChannel() {
-        Channel channel = channelService.findChannel("1902450");
+        Channel channel = channelService.findChannel("newyorker");
         assertNotNull(channel, "The channel is null");
         System.out.println(channel);
     }

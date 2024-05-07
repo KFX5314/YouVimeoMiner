@@ -10,8 +10,6 @@ public class User {
     private String uri;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("link")
-    private String link;
     @JsonProperty("location")
     private String location;
     @JsonProperty("gender")
@@ -39,16 +37,6 @@ public class User {
     @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
-    }
-
-    @JsonProperty("link")
-    public String getLink() {
-        return link;
-    }
-
-    @JsonProperty("link")
-    public void setLink(String link) {
-        this.link = link;
     }
 
     @JsonProperty("location")
@@ -102,10 +90,6 @@ public class User {
         sb.append("name");
         sb.append('=');
         sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
-        sb.append("link");
-        sb.append('=');
-        sb.append(((this.link == null)?"<null>":this.link));
         sb.append(',');
         sb.append("location");
         sb.append('=');

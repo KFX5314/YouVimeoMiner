@@ -15,8 +15,6 @@ public class Comment {
     private String text;
     @JsonProperty("created_on")
     private String createdOn;
-    @JsonProperty("link")
-    private String link;
     @JsonProperty("user")
     private User user;
 
@@ -60,16 +58,6 @@ public class Comment {
         this.createdOn = createdOn;
     }
 
-    @JsonProperty("link")
-    public String getLink() {
-        return link;
-    }
-
-    @JsonProperty("link")
-    public void setLink(String link) {
-        this.link = link;
-    }
-
     @JsonProperty("user")
     public User getUser() {
         return user;
@@ -99,10 +87,6 @@ public class Comment {
         sb.append("createdOn");
         sb.append('=');
         sb.append(((this.createdOn == null)?"<null>":this.createdOn));
-        sb.append(',');
-        sb.append("link");
-        sb.append('=');
-        sb.append(((this.link == null)?"<null>":this.link));
         sb.append(',');
         sb.append("user");
         sb.append('=');

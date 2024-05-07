@@ -13,16 +13,12 @@ public class Channel {
     private String name;
     @JsonProperty("description")
     private Object description;
-    @JsonProperty("link")
-    private String link;
     @JsonProperty("created_time")
     private String createdTime;
     @JsonProperty("modified_time")
     private String modifiedTime;
     @JsonProperty("user")
     private User user;
-    @JsonProperty("tags")
-    private List<Object> tags;
     @JsonProperty("categories")
     private List<Object> categories;
 
@@ -56,16 +52,6 @@ public class Channel {
         this.description = description;
     }
 
-    @JsonProperty("link")
-    public String getLink() {
-        return link;
-    }
-
-    @JsonProperty("link")
-    public void setLink(String link) {
-        this.link = link;
-    }
-
     @JsonProperty("created_time")
     public String getCreatedTime() {
         return createdTime;
@@ -96,16 +82,6 @@ public class Channel {
         this.user = user;
     }
 
-    @JsonProperty("tags")
-    public List<Object> getTags() {
-        return tags;
-    }
-
-    @JsonProperty("tags")
-    public void setTags(List<Object> tags) {
-        this.tags = tags;
-    }
-
     @JsonProperty("categories")
     public List<Object> getCategories() {
         return categories;
@@ -132,10 +108,6 @@ public class Channel {
         sb.append('=');
         sb.append(((this.description == null)?"<null>":this.description));
         sb.append(',');
-        sb.append("link");
-        sb.append('=');
-        sb.append(((this.link == null)?"<null>":this.link));
-        sb.append(',');
         sb.append("createdTime");
         sb.append('=');
         sb.append(((this.createdTime == null)?"<null>":this.createdTime));
@@ -147,10 +119,6 @@ public class Channel {
         sb.append("user");
         sb.append('=');
         sb.append(((this.user == null)?"<null>":this.user));
-        sb.append(',');
-        sb.append("tags");
-        sb.append('=');
-        sb.append(((this.tags == null)?"<null>":this.tags));
         sb.append(',');
         sb.append("categories");
         sb.append('=');
