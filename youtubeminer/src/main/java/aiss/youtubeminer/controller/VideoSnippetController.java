@@ -43,9 +43,9 @@ public class VideoSnippetController {
         return videos;
     }
 
-    // POST http://localhost:8082/youtubeminer/{id}
+    // POST http://localhost:8082/youtubeminer/channels/{channelId}
     @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping("/{id}")
+    @PostMapping("/channels/{channelId}")
     public List<VideoSnippet> downloadVideos(
             @PathVariable(value = "id") String channelId,
             @RequestParam(defaultValue = "10") Integer maxVideos,
