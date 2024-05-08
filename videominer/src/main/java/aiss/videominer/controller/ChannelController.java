@@ -34,7 +34,7 @@ public class ChannelController {
         return channel.get();
     }
 
-    // GET http://localhost:8080/videominer/channels
+    // POST http://localhost:8080/videominer/channels
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/channels")
     public Channel create(@Valid @RequestBody Channel channel) {

@@ -1,7 +1,10 @@
 package aiss.videominer.controller;
 
+import aiss.videominer.exception.ChannelNotFoundException;
 import aiss.videominer.exception.VideoNotFoundException;
+import aiss.videominer.model.Channel;
 import aiss.videominer.model.Video;
+import aiss.videominer.repository.ChannelRepository;
 import aiss.videominer.repository.VideoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +21,8 @@ public class VideoController {
 
     @Autowired
     VideoRepository repository;
+    @Autowired
+    ChannelRepository channelRepository;
 
     // GET http://localhost:8080/videominer/videos
     @GetMapping("/videos")
@@ -31,5 +36,15 @@ public class VideoController {
             throw new VideoNotFoundException();
         }
         return video.get();
+    }
+
+    // GET http://localhost:8080/videominer/channels/{id}/videos
+    @GetMapping("/channels/{id}/videos")
+    public List<Video> findByChannel(@PathVariable String id) throws ChannelNotFoundException {
+        Optional<Channel> channel = channelRepository.findById(id);
+        if(channel.isEmpty()) {
+            throw new ChannelNotFoundException();
+        }
+        return channel.get().getVideos();
     }
 }
