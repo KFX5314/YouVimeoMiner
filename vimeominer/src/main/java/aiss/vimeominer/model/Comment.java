@@ -9,8 +9,6 @@ public class Comment {
 
     @JsonProperty("uri")
     private String uri;
-    @JsonProperty("type")
-    private String type;
     @JsonProperty("text")
     private String text;
     @JsonProperty("created_on")
@@ -26,16 +24,6 @@ public class Comment {
     @JsonProperty("uri")
     public void setUri(String uri) {
         this.uri = uri;
-    }
-
-    @JsonProperty("type")
-    public String getType() {
-        return type;
-    }
-
-    @JsonProperty("type")
-    public void setType(String type) {
-        this.type = type;
     }
 
     @JsonProperty("text")
@@ -75,10 +63,6 @@ public class Comment {
         sb.append("uri");
         sb.append('=');
         sb.append(((this.uri == null)?"<null>":this.uri));
-        sb.append(',');
-        sb.append("type");
-        sb.append('=');
-        sb.append(((this.type == null)?"<null>":this.type));
         sb.append(',');
         sb.append("text");
         sb.append('=');

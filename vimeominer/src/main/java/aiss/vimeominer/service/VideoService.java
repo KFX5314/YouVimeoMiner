@@ -20,11 +20,14 @@ public class VideoService {
     RestTemplate restTemplate;
 
     String url = "https://api.vimeo.com/videos";
+    //https://api.vimeo.com/users/sundanceshorts/videos
+    //https://api.vimeo.com/channels/sundanceshorts/videos
+    //https://api.vimeo.com/channels/sundanceshorts/videos/898953374
 
     //Este es el token que he generado yo
     String token = "3f762ed847d6f0ab92886c953e5481de";
 
-    public List<Video> findAllVideos(String userId) {
+    public List<Video> findAllVideosFromUser(String userId) {
         String uri = "https://api.vimeo.com/users/" + userId + "/videos";
 
         HttpHeaders headers = new HttpHeaders();
@@ -34,6 +37,30 @@ public class VideoService {
         ResponseEntity<VideoList> response = restTemplate.exchange(uri, HttpMethod.GET, request, VideoList.class);
 
         return Objects.requireNonNull(response.getBody()).getData();
+    }
+
+    public List<Video> findAllVideosFromChannel(String channelId, Integer numVideos) {
+        String uri = "https://api.vimeo.com/channels/" + channelId + "/videos?page=1&per_page="+numVideos;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + token);
+
+        HttpEntity<VideoList> request = new HttpEntity<>(null, headers);
+        ResponseEntity<VideoList> response = restTemplate.exchange(uri, HttpMethod.GET, request, VideoList.class);
+
+        return Objects.requireNonNull(response.getBody()).getData();
+    }
+
+    public Video findVideoFromChannel(String channelId, String idVideo) {
+        String uri = "https://api.vimeo.com/channels/" + channelId + "/videos/" + idVideo;
+
+        HttpHeaders headers = new HttpHeaders();
+        headers.set("Authorization", "Bearer " + token);
+
+        HttpEntity<Video> request = new HttpEntity<>(null, headers);
+        ResponseEntity<Video> response = restTemplate.exchange(uri, HttpMethod.GET, request, Video.class);
+
+        return response.getBody();
     }
 
     public Video findVideo(String id) {

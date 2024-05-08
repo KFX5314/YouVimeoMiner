@@ -18,16 +18,29 @@ class VideoServiceTest {
 
     @Test
     @DisplayName("Find all videos")
-    void findAllVideos() {
-        List<Video> videoList = videoService.findAllVideos("paultrillo");
+    void findAllVideosFromUser() {
+        List<Video> videoList = videoService.findAllVideosFromUser("luizdemedia");
         assertNotNull(videoList, "The videoList is null");
         System.out.println(videoList);
     }
-
+    @Test
+    @DisplayName("Find all videos")
+    void findAllVideosFromChannel() {
+        List<Video> videoList = videoService.findAllVideosFromChannel("sundanceshorts",10);
+        assertNotNull(videoList, "The videoList is null");
+        System.out.println(videoList);
+    }
+    @Test
+    @DisplayName("Find all videos")
+    void findVideoFromChannel() {
+        Video video = videoService.findVideoFromChannel("sundanceshorts","898953374");
+        assertNotNull(video, "The video is null");
+        System.out.println(video);
+    }
     @Test
     @DisplayName("Find video by ID")
     void findVideo() {
-        Video video = videoService.findVideo("941713443");
+        Video video = videoService.findVideo("898953374");
         assertNotNull(video, "The video is null");
         System.out.println(video);
     }

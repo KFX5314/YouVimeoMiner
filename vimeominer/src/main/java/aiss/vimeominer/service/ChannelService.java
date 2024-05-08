@@ -48,7 +48,7 @@ public class ChannelService {
 
         return response.getBody();
     }
-
+    /*
     public VideoList getVideosFromChannel(String channelId) {
         String uri = "https://api.vimeo.com/channels/" + channelId + "/videos";
 
@@ -60,5 +60,6 @@ public class ChannelService {
 
         return response.getBody();
     }
+     */
 
 }

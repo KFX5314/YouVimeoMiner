@@ -14,10 +14,6 @@ public class User {
     private String location;
     @JsonProperty("gender")
     private String gender;
-    @JsonProperty("bio")
-    private String bio;
-    @JsonProperty("created_time")
-    private String createdTime;
 
     @JsonProperty("uri")
     public String getUri() {
@@ -59,26 +55,6 @@ public class User {
         this.gender = gender;
     }
 
-    @JsonProperty("bio")
-    public String getBio() {
-        return bio;
-    }
-
-    @JsonProperty("bio")
-    public void setBio(String bio) {
-        this.bio = bio;
-    }
-
-    @JsonProperty("created_time")
-    public String getCreatedTime() {
-        return createdTime;
-    }
-
-    @JsonProperty("created_time")
-    public void setCreatedTime(String createdTime) {
-        this.createdTime = createdTime;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -98,14 +74,6 @@ public class User {
         sb.append("gender");
         sb.append('=');
         sb.append(((this.gender == null)?"<null>":this.gender));
-        sb.append(',');
-        sb.append("bio");
-        sb.append('=');
-        sb.append(((this.bio == null)?"<null>":this.bio));
-        sb.append(',');
-        sb.append("createdTime");
-        sb.append('=');
-        sb.append(((this.createdTime == null)?"<null>":this.createdTime));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

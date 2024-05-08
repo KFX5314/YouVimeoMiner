@@ -19,7 +19,7 @@ class CaptionServiceTest {
     @Test
     @DisplayName("Find all captions")
     void findAllCaptions() {
-        List<Caption> captionList = captionService.findAllCaptions("941713443");
+        List<Caption> captionList = captionService.findAllCaptions("898953374");
         assertNotNull(captionList, "The captionList is null");
         System.out.println(captionList);
     }
@@ -27,7 +27,7 @@ class CaptionServiceTest {
     @Test
     @DisplayName("Find caption by ID")
     void findCaptions() {
-        Caption caption = captionService.findCaption("941713443","153358471");
+        Caption caption = captionService.findCaption("898953374","126987019");
         assertNotNull(caption, "The caption is null");
         System.out.println(caption);
     }

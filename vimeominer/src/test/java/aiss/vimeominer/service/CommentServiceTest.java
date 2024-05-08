@@ -19,7 +19,7 @@ class CommentServiceTest {
     @Test
     @DisplayName("Find all comments")
     void findAllChannels() {
-        List<Comment> commentList = commentService.findAllComments("941713443");
+        List<Comment> commentList = commentService.findAllComments("898953374",10);
         assertNotNull(commentList, "The channelList is null");
         System.out.println(commentList);
     }
@@ -27,7 +27,7 @@ class CommentServiceTest {
     @Test
     @DisplayName("Find comment by ID")
     void findChannel() {
-        Comment comment = commentService.findComment("941713443","20544562");
+        Comment comment = commentService.findComment("898953374","20493363");
         assertNotNull(comment, "The channel is null");
         System.out.println(comment);
     }

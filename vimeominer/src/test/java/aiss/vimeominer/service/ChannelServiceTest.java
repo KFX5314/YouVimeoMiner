@@ -28,11 +28,11 @@ class ChannelServiceTest {
     @Test
     @DisplayName("Find channel by ID")
     void findChannel() {
-        Channel channel = channelService.findChannel("newyorker");
+        Channel channel = channelService.findChannel("sundanceshorts");
         assertNotNull(channel, "The channel is null");
         System.out.println(channel);
     }
-
+    /*
     @Test
     @DisplayName("Get videos from a channel")
     void getVideosFromChannel() {
@@ -40,4 +40,5 @@ class ChannelServiceTest {
         assertNotNull(videoList, "The videoList is null");
         System.out.println(videoList);
     }
+    */
 }

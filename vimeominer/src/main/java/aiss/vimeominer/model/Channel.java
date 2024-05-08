@@ -3,23 +3,53 @@ package aiss.vimeominer.model;
 import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
+
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Channel {
 
+    @NotNull(message = "Uri cannot be null")
     @JsonProperty("uri")
     private String uri;
+    @JsonProperty("id")
+    private String id;
     @JsonProperty("name")
     private String name;
     @JsonProperty("description")
     private Object description;
     @JsonProperty("created_time")
     private String createdTime;
-    @JsonProperty("modified_time")
-    private String modifiedTime;
-    @JsonProperty("user")
-    private User user;
 
+    // These attributes have been manually added
+    @JsonProperty("comments")
+    private VideoList videos;
+
+    public Channel() {
+        id = uri.replace("/channels/","");
+        this.videos = new VideoList();
+    }
+
+    @JsonProperty("id")
+    public String getId() {
+        return id;
+    }
+
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    @JsonProperty("videos")
+    public VideoList getVideos() {
+        return videos;
+    }
+
+    @JsonProperty("videos")
+    public void setVideos(VideoList videos) {
+        this.videos = videos;
+    }
     @JsonProperty("uri")
     public String getUri() {
         return uri;
@@ -60,26 +90,6 @@ public class Channel {
         this.createdTime = createdTime;
     }
 
-    @JsonProperty("modified_time")
-    public String getModifiedTime() {
-        return modifiedTime;
-    }
-
-    @JsonProperty("modified_time")
-    public void setModifiedTime(String modifiedTime) {
-        this.modifiedTime = modifiedTime;
-    }
-
-    @JsonProperty("user")
-    public User getUser() {
-        return user;
-    }
-
-    @JsonProperty("user")
-    public void setUser(User user) {
-        this.user = user;
-    }
-
     @Override
     public String toString() {
         StringBuilder sb = new StringBuilder();
@@ -99,14 +109,6 @@ public class Channel {
         sb.append("createdTime");
         sb.append('=');
         sb.append(((this.createdTime == null)?"<null>":this.createdTime));
-        sb.append(',');
-        sb.append("modifiedTime");
-        sb.append('=');
-        sb.append(((this.modifiedTime == null)?"<null>":this.modifiedTime));
-        sb.append(',');
-        sb.append("user");
-        sb.append('=');
-        sb.append(((this.user == null)?"<null>":this.user));
         sb.append(',');
         if (sb.charAt((sb.length()- 1)) == ',') {
             sb.setCharAt((sb.length()- 1), ']');

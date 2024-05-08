@@ -20,12 +20,13 @@ public class CommentService {
     RestTemplate restTemplate;
 
     String url = "https://api.vimeo.com/videos";
+    //https://api.vimeo.com/videos/941713443/comments
 
     //Este es el token que he generado yo
     String token = "3f762ed847d6f0ab92886c953e5481de";
 
-    public List<Comment> findAllComments(String id) {
-        String uri = url + "/" + id + "/comments";
+    public List<Comment> findAllComments(String id, Integer numComments) {
+        String uri = url + "/" + id + "/comments?page=1&per_page="+numComments;
 
         HttpHeaders headers = new HttpHeaders();
         headers.set("Authorization", "Bearer " + token);
