@@ -58,7 +58,11 @@ public class VideoSnippetService {
         if (videoSnippetSearch != null && videoSnippetSearch.getItems() != null) {
             videoSnippets.addAll(videoSnippetSearch.getItems());
         }
-
+        //TODO incluso si el canal existe devuelve esta excepcion para canales sin videos
+        if (videoSnippets.isEmpty())
+        {
+            throw new ChannelNotFoundException();
+        }
         return videoSnippets;
     }
 
