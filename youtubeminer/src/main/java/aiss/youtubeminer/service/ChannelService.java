@@ -48,7 +48,7 @@ public class ChannelService {
 
         ChannelSearch channelSearch = responseEntity.getBody();
 
-        // Double check the Channel is found just in case.
+        // Double-check the Channel is found just in case.
         if (channelSearch == null || channelSearch.getItems().isEmpty()) {
             throw new ChannelNotFoundException();
         }

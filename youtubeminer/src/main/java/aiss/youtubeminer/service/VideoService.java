@@ -6,8 +6,6 @@ import aiss.youtubeminer.model.youtube.videoSnippet.VideoSnippetSearch;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
-import org.springframework.web.client.HttpClientErrorException;
-import org.springframework.web.client.RestClientException;
 import org.springframework.web.client.RestTemplate;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -16,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class VideoSnippetService {
+public class VideoService {
 
     private final String BASE_URI = "https://www.googleapis.com/youtube/v3/search";
 
