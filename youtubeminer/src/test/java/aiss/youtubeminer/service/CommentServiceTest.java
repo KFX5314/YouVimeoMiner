@@ -21,7 +21,7 @@ class CommentServiceTest {
     @DisplayName("Get M comments from a given channel")
     void getVideosFromChannel() {
         // 10 comentarios del video 275VkeAlu90
-        List<Comment> comments = service.getCommentsForVideo("275VkeAlu90", 10);
+        List<Comment> comments = service.getCommentsForVideo("275VkeAlu90", 10, "API_KEY");
         assertFalse(comments.isEmpty(), "The list of comments is empty");
         System.out.println(comments.stream().map(v -> v.getCommentSnippet().getTopLevelComment().getSnippet().getTextOriginal()).collect(Collectors.joining("\n")));
     }

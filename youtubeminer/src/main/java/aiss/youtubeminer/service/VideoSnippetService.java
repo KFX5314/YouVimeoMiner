@@ -18,14 +18,12 @@ import java.util.List;
 @Service
 public class VideoSnippetService {
 
-    private final String API_KEY = "API_KEY";
-
     private final String BASE_URI = "https://www.googleapis.com/youtube/v3/search";
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<VideoSnippet> getVideosFromChannel(String id, Integer maxVideos) throws ChannelNotFoundException {
+    public List<VideoSnippet> getVideosFromChannel(String id, Integer maxVideos, String API_KEY) throws ChannelNotFoundException {
         URI uri = UriComponentsBuilder.fromUriString(BASE_URI)
                 .queryParam("part", "snippet")
                 .queryParam("channelId", id)
@@ -41,15 +39,9 @@ public class VideoSnippetService {
         // Send request and deserialize response into VideoSnippetSearch
         ResponseEntity<VideoSnippetSearch> responseEntity;
 
-        try {
-            responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, VideoSnippetSearch.class);
-        } catch (HttpClientErrorException exception) {
-            if (exception.getStatusCode().isSameCodeAs(HttpStatus.NOT_FOUND)) {
-                throw new ChannelNotFoundException();
-            } else {
-                throw exception;
-            }
-        }
+
+        responseEntity = restTemplate.exchange(uri, HttpMethod.GET, requestEntity, VideoSnippetSearch.class);
+
 
         VideoSnippetSearch videoSnippetSearch = responseEntity.getBody();
 
@@ -58,15 +50,6 @@ public class VideoSnippetService {
         if (videoSnippetSearch != null && videoSnippetSearch.getItems() != null) {
             videoSnippets.addAll(videoSnippetSearch.getItems());
         }
-        //TODO incluso si el canal existe devuelve esta excepcion para canales sin videos
-        if (videoSnippets.isEmpty())
-        {
-            throw new ChannelNotFoundException();
-        }
         return videoSnippets;
-    }
-
-    public List<VideoSnippet> getVideosFromChannel(String id) throws ChannelNotFoundException {
-        return getVideosFromChannel(id, 10);
     }
 }

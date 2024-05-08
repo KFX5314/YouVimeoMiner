@@ -29,13 +29,14 @@ public class VideoSnippetController {
     @GetMapping("/channels/{channelId}")
     public List<VideoSnippet> getVideosFromChannel(
             @PathVariable(value = "channelId") String channelId,
-            @RequestParam(defaultValue = "10") int maxVideos,
-            @RequestParam(defaultValue = "10") int maxComments
+            @RequestParam(defaultValue = "10") Integer maxVideos,
+            @RequestParam(defaultValue = "10") Integer maxComments,
+            @RequestHeader("X-goog-api-key") String API_KEY
     ) throws ChannelNotFoundException {
-        List<VideoSnippet> videos = videoSnippetService.getVideosFromChannel(channelId, maxVideos);
+        List<VideoSnippet> videos = videoSnippetService.getVideosFromChannel(channelId, maxVideos, API_KEY);
 
         for (VideoSnippet video : videos) {
-            List<Comment> comments = commentService.getCommentsForVideo(video.getId().getVideoId(), maxComments);
+            List<Comment> comments = commentService.getCommentsForVideo(video.getId().getVideoId(), maxComments, API_KEY);
             video.setComments(comments);
         }
 
@@ -48,9 +49,10 @@ public class VideoSnippetController {
     public List<VideoSnippet> downloadVideos(
             @PathVariable(value = "id") String channelId,
             @RequestParam(defaultValue = "10") Integer maxVideos,
-            @RequestParam(defaultValue = "10") Integer maxComments
+            @RequestParam(defaultValue = "10") Integer maxComments,
+            @RequestHeader("X-goog-api-key") String API_KEY
     ) throws ChannelNotFoundException {
-        var videos = getVideosFromChannel(channelId, maxVideos, maxComments);
+        var videos = getVideosFromChannel(channelId, maxVideos, maxComments, API_KEY);
 
         videominerService.saveVideos(channelId, videos);
 

@@ -20,14 +20,12 @@ import java.util.List;
 @Service
 public class CommentService {
 
-    private final String API_KEY = "API_KEY";
-
     private final String BASE_URI = "https://www.googleapis.com/youtube/v3/commentThreads";
 
     @Autowired
     private RestTemplate restTemplate;
 
-    public List<Comment> getCommentsForVideo(String videoId, Integer maxComments) {
+    public List<Comment> getCommentsForVideo(String videoId, Integer maxComments, String API_KEY) {
         URI uri = UriComponentsBuilder.fromUriString(BASE_URI)
                 .queryParam("part", "snippet")
                 .queryParam("videoId", videoId)
@@ -64,7 +62,7 @@ public class CommentService {
         return comments;
     }
 
-    public List<Comment> getCommentsForVideo(String videoId) {
-        return getCommentsForVideo(videoId, 10);
+    public List<Comment> getCommentsForVideo(String videoId, String API_KEY) {
+        return getCommentsForVideo(videoId, 10 ,API_KEY);
     }
 }

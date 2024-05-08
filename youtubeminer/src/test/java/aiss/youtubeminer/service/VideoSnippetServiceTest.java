@@ -21,7 +21,7 @@ class VideoSnippetServiceTest {
     @DisplayName("Get N videos from a given channel")
     void getVideosFromChannel() throws ChannelNotFoundException {
         // 10 videos del canal RAINBOLT
-        List<VideoSnippet> videos = service.getVideosFromChannel("UC_slDWTPHflhuZqbGc8u4yA", 10);
+        List<VideoSnippet> videos = service.getVideosFromChannel("UC_slDWTPHflhuZqbGc8u4yA", 10, "API_KEY");
         assertFalse(videos.isEmpty(), "The list of videos is empty");
         System.out.println(videos.stream().map(v -> v.getSnippet().getTitle()).collect(Collectors.joining("\n")));
     }
