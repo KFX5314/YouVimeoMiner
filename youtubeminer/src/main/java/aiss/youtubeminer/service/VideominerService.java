@@ -60,7 +60,7 @@ public class VideominerService {
             return vid;
         }).toList());
 
-        restTemplate.postForObject(BASE_URI, ytChannel, Channel.class);
+        restTemplate.postForObject(BASE_URI, videoChannel, Channel.class);
 
         return videoChannel;
     }
