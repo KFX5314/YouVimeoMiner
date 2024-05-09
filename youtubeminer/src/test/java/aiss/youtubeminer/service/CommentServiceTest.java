@@ -18,7 +18,7 @@ class CommentServiceTest {
     CommentService service;
 
     @Test
-    @DisplayName("Get M comments from a given channel")
+    @DisplayName("Get M comments from a given video")
     void getVideosFromChannel() {
         // 10 comentarios del video 275VkeAlu90
         List<Comment> comments = service.getCommentsForVideo("275VkeAlu90", 10, "API_KEY");

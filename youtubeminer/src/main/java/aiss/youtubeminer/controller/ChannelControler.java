@@ -1,13 +1,12 @@
 package aiss.youtubeminer.controller;
 
 import aiss.youtubeminer.exception.ChannelNotFoundException;
+import aiss.youtubeminer.model.youtube.caption.Caption;
+import aiss.youtubeminer.model.youtube.caption.CaptionSearch;
 import aiss.youtubeminer.model.youtube.channel.Channel;
 import aiss.youtubeminer.model.youtube.comment.Comment;
 import aiss.youtubeminer.model.youtube.videoSnippet.VideoSnippet;
-import aiss.youtubeminer.service.ChannelService;
-import aiss.youtubeminer.service.CommentService;
-import aiss.youtubeminer.service.VideoService;
-import aiss.youtubeminer.service.VideominerService;
+import aiss.youtubeminer.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
@@ -24,6 +23,8 @@ public class ChannelControler {
     VideoService videoService;
     @Autowired
     CommentService commentService;
+    @Autowired
+    CaptionService captionService;
 
     @Autowired
     VideominerService videominerService;
@@ -42,6 +43,8 @@ public class ChannelControler {
         for (VideoSnippet video : videos) {
             List<Comment> comments = commentService.getCommentsForVideo(video.getId().getVideoId(), maxComments, API_KEY);
             video.setComments(comments);
+            List<Caption> captions = captionService.getCaptionsForVideo(video.getId().getVideoId(), API_KEY);
+            video.setCaptions(captions);
         }
 
         Channel channel = channelService.getChannel(channelId, API_KEY);

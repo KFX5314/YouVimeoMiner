@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-public class CaptionService {/* TODO
+public class CaptionService {// TODO
 
     private final String BASE_URI = "https://www.googleapis.com/youtube/v3/captions";
 
@@ -54,5 +54,5 @@ public class CaptionService {/* TODO
         }
 
         return captions;
-    }*/
+    }
 }
