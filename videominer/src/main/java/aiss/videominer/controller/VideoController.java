@@ -6,6 +6,7 @@ import aiss.videominer.model.Channel;
 import aiss.videominer.model.Video;
 import aiss.videominer.repository.ChannelRepository;
 import aiss.videominer.repository.VideoRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 import java.util.Optional;
 
+@Tag(name = "Video", description = "Video management API")
 @RestController
 @RequestMapping("/videominer")
 public class VideoController {

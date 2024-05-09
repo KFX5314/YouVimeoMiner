@@ -53,7 +53,7 @@ public class ChannelControler {
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/channels/{channelId}")
     public aiss.youtubeminer.model.Channel downloadVideos(
-            @PathVariable(value = "id") String channelId,
+            @PathVariable(value = "channelId") String channelId,
             @RequestParam(defaultValue = "10") Integer maxVideos,
             @RequestParam(defaultValue = "10") Integer maxComments,
             @RequestHeader("X-goog-api-key") String apiKey

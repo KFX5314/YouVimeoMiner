@@ -3,6 +3,7 @@ package aiss.videominer.controller;
 import aiss.videominer.exception.ChannelNotFoundException;
 import aiss.videominer.model.Channel;
 import aiss.videominer.repository.ChannelRepository;
+import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -10,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
-
+@Tag(name = "Channel", description = "Channel management API")
 @RestController
 @RequestMapping("/videominer")
 public class ChannelController {
