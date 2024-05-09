@@ -50,18 +50,16 @@ public class ChannelControler {
     }
 
     // POST http://localhost:8082/youtubeminer/channels/{channelId}
-    /*@ResponseStatus(HttpStatus.CREATED)
+    @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/channels/{channelId}")
-    public List<VideoSnippet> downloadVideos(
+    public aiss.youtubeminer.model.Channel downloadVideos(
             @PathVariable(value = "id") String channelId,
             @RequestParam(defaultValue = "10") Integer maxVideos,
             @RequestParam(defaultValue = "10") Integer maxComments,
-            @RequestHeader("X-goog-api-key") String API_KEY
+            @RequestHeader("X-goog-api-key") String apiKey
     ) throws ChannelNotFoundException {
-        var videos = getChannel(channelId, maxVideos, maxComments, API_KEY);
+        var channel = getChannel(channelId, maxVideos, maxComments, apiKey);
 
-        videominerService.saveVideos(channelId, videos);
-
-        return videos;
-    }*/
+        return videominerService.saveChannel(channel);
+    }
 }
