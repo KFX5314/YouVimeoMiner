@@ -1,101 +1,74 @@
+package aiss.vimeominer.videominer_models;
 
-package aiss.vimeominer.model;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+
 import java.util.ArrayList;
 import java.util.List;
 
-import ch.qos.logback.core.net.SyslogOutputStream;
-import com.fasterxml.jackson.annotation.JsonAlias;
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotNull;
-
-import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
-
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Channel {
 
-    @NotNull(message = "Uri cannot be null")
-    @JsonProperty("uri")
-    private String uri;
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("name")
+    @NotEmpty(message = "Channel name cannot be empty")
     private String name;
+
     @JsonProperty("description")
     private String description;
-    @JsonProperty("created_time")
+
+    @JsonProperty("createdTime")
+    @NotEmpty(message = "Channel creation time cannot be empty")
     private String createdTime;
 
     @JsonProperty("videos")
+    @NotNull(message = "Channel videos cannot be null")
     private List<Video> videos;
 
     public Channel() {
         this.videos = new ArrayList<>();
     }
 
-    @JsonProperty("id")
     public String getId() {
-        if(uri == null){
-            System.out.println("Uri de channel null");
-        }
-        assertNotNull(uri);
-        return id = uri.trim().split("/")[2];
-        //return id = uri.replace("/channels/","");
+        return id;
     }
 
-    @JsonProperty("id")
     public void setId(String id) {
         this.id = id;
     }
 
-    @JsonProperty("videos")
-    public List<Video> getVideos() {
-        return videos;
-    }
-
-    @JsonProperty("videos")
-    public void setVideos(List<Video> videos) {
-        this.videos = videos;
-    }
-
-    @JsonProperty("uri")
-    public String getUri() {
-        return uri;
-    }
-
-    @JsonProperty("uri")
-    public void setUri(String uri) {
-        this.uri = uri;
-    }
-
-    @JsonProperty("name")
     public String getName() {
         return name;
     }
 
-    @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
     }
 
-    @JsonProperty("description")
     public String getDescription() {
         return description;
     }
 
-    @JsonProperty("description")
     public void setDescription(String description) {
         this.description = description;
     }
 
-    @JsonProperty("created_time")
     public String getCreatedTime() {
         return createdTime;
     }
 
-    @JsonProperty("created_time")
     public void setCreatedTime(String createdTime) {
         this.createdTime = createdTime;
+    }
+
+    public List<Video> getVideos() {
+        return videos;
+    }
+
+    public void setVideos(List<Video> videos) {
+        this.videos = videos;
     }
 
     @Override
@@ -108,6 +81,4 @@ public class Channel {
                 ", videos=" + videos +
                 '}';
     }
-
 }
-

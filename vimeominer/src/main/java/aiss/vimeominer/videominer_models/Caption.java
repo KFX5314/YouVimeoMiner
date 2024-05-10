@@ -1,47 +1,41 @@
-package aiss.vimeominer.model;
+package aiss.vimeominer.videominer_models;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import jakarta.validation.constraints.NotNull;
 
-@JsonIgnoreProperties(ignoreUnknown = true)
 public class Caption {
 
-    @JsonProperty("language")
-    private String language;
     @JsonProperty("id")
     private String id;
+
     @JsonProperty("name")
     private String name;
 
     @JsonProperty("language")
-    public String getLanguage() {
-        return language;
-    }
+    private String language;
 
-    @JsonProperty("language")
-    public void setLanguage(String language) {
-        this.language = language;
-    }
 
-    @JsonProperty("id")
     public String getId() {
         return id;
     }
 
-    @JsonProperty("id")
     public void setId(String id) {
         this.id = id;
     }
 
-    @JsonProperty("name")
     public String getName() {
         return name;
     }
 
-    @JsonProperty("name")
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getLanguage() {
+        return language;
+    }
+
+    public void setLanguage(String language) {
+        this.language = language;
     }
 
     @Override
@@ -52,5 +46,4 @@ public class Caption {
                 ", language='" + language + '\'' +
                 '}';
     }
-
 }

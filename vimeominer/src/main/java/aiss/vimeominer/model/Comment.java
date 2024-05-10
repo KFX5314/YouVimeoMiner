@@ -1,20 +1,42 @@
 package aiss.vimeominer.model;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
+import org.springframework.lang.NonNull;
+
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Comment {
 
+    @NotNull(message = "Uri cannot be null")
     @JsonProperty("uri")
     private String uri;
+    @JsonProperty("id")
+    private String id;
     @JsonProperty("text")
     private String text;
     @JsonProperty("created_on")
     private String createdOn;
     @JsonProperty("user")
     private User user;
+
+    @JsonProperty("id")
+    public String getId() {
+        if(uri == null){
+            System.out.println("Uri de comment null");
+        }
+        assertNotNull(uri);
+        return id = uri.split("/")[4];
+    }
+
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
 
     @JsonProperty("uri")
     public String getUri() {
@@ -58,30 +80,12 @@ public class Comment {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(Comment.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("uri");
-        sb.append('=');
-        sb.append(((this.uri == null)?"<null>":this.uri));
-        sb.append(',');
-        sb.append("text");
-        sb.append('=');
-        sb.append(((this.text == null)?"<null>":this.text));
-        sb.append(',');
-        sb.append("createdOn");
-        sb.append('=');
-        sb.append(((this.createdOn == null)?"<null>":this.createdOn));
-        sb.append(',');
-        sb.append("user");
-        sb.append('=');
-        sb.append(((this.user == null)?"<null>":this.user));
-        sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
-        } else {
-            sb.append(']');
-        }
-        return sb.toString();
+        return "Comment{" +
+                "id='" + id + '\'' +
+                ", text='" + text + '\'' +
+                ", createdOn='" + createdOn + '\'' +
+                ", author=" + user +
+                '}';
     }
 
 }

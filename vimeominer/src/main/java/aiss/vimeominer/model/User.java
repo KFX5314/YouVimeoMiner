@@ -1,19 +1,39 @@
 
 package aiss.vimeominer.model;
-import java.util.List;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
+
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
+
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class User {
 
+    @NotNull(message = "Uri cannot be null")
     @JsonProperty("uri")
     private String uri;
+    @JsonProperty("id")
+    private String id;
     @JsonProperty("name")
     private String name;
-    @JsonProperty("location")
-    private String location;
-    @JsonProperty("gender")
-    private String gender;
+    @JsonProperty("link")
+    private String link;
+    @JsonProperty("picture_link")
+    private String picture_link;
+
+    @JsonProperty("id")
+    public String getId() {
+        if(uri == null){
+            System.out.println("Uri de user null");
+        }
+        assertNotNull(uri);
+        return id = uri.trim().split("/")[2];
+    }
+
+    @JsonProperty("id")
+    public void setId(String id) {
+        this.id = id;
+    }
 
     @JsonProperty("uri")
     public String getUri() {
@@ -35,52 +55,30 @@ public class User {
         this.name = name;
     }
 
-    @JsonProperty("location")
-    public String getLocation() {
-        return location;
+    public String getUser_link() {
+        return link;
     }
 
-    @JsonProperty("location")
-    public void setLocation(String location) {
-        this.location = location;
+    public void setUser_link(String user_link) {
+        this.link = user_link;
     }
 
-    @JsonProperty("gender")
-    public String getGender() {
-        return gender;
+    public String getPicture_link() {
+        return picture_link;
     }
 
-    @JsonProperty("gender")
-    public void setGender(String gender) {
-        this.gender = gender;
+    public void setPicture_link(String picture_link) {
+        this.picture_link = picture_link;
     }
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(User.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("uri");
-        sb.append('=');
-        sb.append(((this.uri == null)?"<null>":this.uri));
-        sb.append(',');
-        sb.append("name");
-        sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
-        sb.append("location");
-        sb.append('=');
-        sb.append(((this.location == null)?"<null>":this.location));
-        sb.append(',');
-        sb.append("gender");
-        sb.append('=');
-        sb.append(((this.gender == null)?"<null>":this.gender));
-        sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
-        } else {
-            sb.append(']');
-        }
-        return sb.toString();
+        return "User{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", user_link='" + link + '\'' +
+                ", picture_link='" + picture_link + '\'' +
+                '}';
     }
 
 }

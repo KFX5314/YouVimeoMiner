@@ -3,12 +3,17 @@ package aiss.vimeominer.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import jakarta.validation.constraints.NotNull;
+
+import static org.hibernate.validator.internal.util.Contracts.assertNotNull;
 
 @JsonIgnoreProperties(ignoreUnknown = true)
 public class Video {
 
+    @NotNull(message = "Uri cannot be null")
     @JsonProperty("uri")
     private String uri;
 
@@ -24,20 +29,23 @@ public class Video {
 
     // These attributes have been manually added
     @JsonProperty("comments")
-    private CommentList comments;
+    private List<Comment> comments;
 
     @JsonProperty("captions")
-    private CaptionList captions;
+    private List<Caption> captions;
 
     public Video() {
-        id = uri.replace("/videos/","");
-        this.comments = new CommentList();
-        this.captions = new CaptionList();
+        this.comments = new ArrayList<>();
+        this.captions = new ArrayList<>();
     }
 
     @JsonProperty("id")
     public String getId() {
-        return id;
+        if(uri == null){
+            System.out.println("Uri de video null");
+        }
+        assertNotNull(uri);
+        return uri.split("/")[2];
     }
 
     @JsonProperty("id")
@@ -46,20 +54,20 @@ public class Video {
     }
 
     @JsonProperty("comments")
-    public CommentList getComments() {
+    public List<Comment> getComments() {
         return comments;
     }
 
     @JsonProperty("comments")
-    public void setComments(CommentList comments) {
+    public void setComments(List<Comment> comments) {
         this.comments = comments;
     }
 
     @JsonProperty("captions")
-    public CaptionList getCaptions() { return captions; }
+    public List<Caption> getCaptions() { return captions; }
 
     @JsonProperty("captions")
-    public void setCaptions(CaptionList captions) {
+    public void setCaptions(List<Caption> captions) {
         this.captions = captions;
     }
 
@@ -105,30 +113,14 @@ public class Video {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder();
-        sb.append(Video.class.getName()).append('@').append(Integer.toHexString(System.identityHashCode(this))).append('[');
-        sb.append("uri");
-        sb.append('=');
-        sb.append(((this.uri == null)?"<null>":this.uri));
-        sb.append(',');
-        sb.append("name");
-        sb.append('=');
-        sb.append(((this.name == null)?"<null>":this.name));
-        sb.append(',');
-        sb.append("description");
-        sb.append('=');
-        sb.append(((this.description == null)?"<null>":this.description));
-        sb.append(',');
-        sb.append("releaseTime");
-        sb.append('=');
-        sb.append(((this.releaseTime == null)?"<null>":this.releaseTime));
-        sb.append(',');
-        if (sb.charAt((sb.length()- 1)) == ',') {
-            sb.setCharAt((sb.length()- 1), ']');
-        } else {
-            sb.append(']');
-        }
-        return sb.toString();
+        return "Video{" +
+                "id='" + id + '\'' +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", releaseTime='" + releaseTime + '\'' +
+                ", comments=" + comments +
+                ", captions=" + captions +
+                '}';
     }
 
 }

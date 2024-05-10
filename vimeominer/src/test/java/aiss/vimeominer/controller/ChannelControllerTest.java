@@ -1,5 +1,6 @@
 package aiss.vimeominer.controller;
 
+import aiss.vimeominer.exception.ChannelNotFoundException;
 import aiss.vimeominer.model.Channel;
 import aiss.vimeominer.service.ChannelService;
 import org.junit.jupiter.api.DisplayName;
@@ -17,9 +18,10 @@ class ChannelControllerTest {
 
     @Test
     @DisplayName("Find all channels")
-    void getChannel() {
+    void getChannel() throws ChannelNotFoundException {
         Channel channel = channelController.getChannel("sundanceshorts",10,10);
         assertNotNull(channel, "The channel is null");
         System.out.println(channel);
     }
+
 }
