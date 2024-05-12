@@ -21,6 +21,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import java.util.Optional;
+
 @Tag(name = "Comment", description = "Comment management API")
 @RestController
 @RequestMapping("/videominer")
@@ -32,9 +33,11 @@ public class CommentController {
     VideoRepository videoRepository;
 
     // GET http://localhost:8080/videominer/comments
-    @Operation( summary = "Retrieve all comments",
+    @Operation(
+            summary = "Retrieve all comments",
             description = "Get all comments present on the database",
-            tags = { "comments", "get" })
+            tags = {"comments", "get"}
+    )
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "List of comments",
                     content = { @Content(schema = @Schema(implementation = Comment.class),
@@ -43,49 +46,85 @@ public class CommentController {
                     content = { @Content(schema = @Schema()) })
     })
     @GetMapping("/comments")
-    public List<Comment> findAll() { return repository.findAll(); }
+    public List<Comment> findAll() {
+        return repository.findAll();
+    }
 
     // GET http://localhost:8080/videominer/comments/{id}
-    @Operation( summary = "Retrieve a Comment by Id",
+    @Operation(
+            summary = "Retrieve a Comment by Id",
             description = "Get a Comment object by specifying its id",
-            tags = { "comments", "get" })
+            tags = {"comments", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Retrieved comment",
-                    content = { @Content(schema = @Schema(implementation = Comment.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description = "Comment not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Retrieved comment",
+                    content = {
+                            @Content(schema = @Schema(implementation = Comment.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Comment not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/comments/{id}")
-    public Comment findOne(@Parameter(description = "id of the comment to be searched")
-                               @PathVariable String id) throws CommentNotFoundException {
+    public Comment findOne(
+            @Parameter(description = "id of the comment to be searched") @PathVariable String id
+    ) throws CommentNotFoundException {
         Optional<Comment> comment = repository.findById(id);
-        if(comment.isEmpty()) {
+
+        if (comment.isEmpty()) {
             throw new CommentNotFoundException();
         }
+
         return comment.get();
     }
 
     // GET http://localhost:8080/videominer/videos/{id}/comments
-    @Operation( summary = "Retrieve all comments of a video by its Id",
+    @Operation(
+            summary = "Retrieve all comments of a video by its Id",
             description = "Get a all comments of a video by specifying the id of the Video",
-            tags = { "comments", "get" })
+            tags = {"comments", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Retrieved comment",
-                    content = { @Content(schema = @Schema(implementation = Comment.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description = "Video not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Retrieved comment",
+                    content = {
+                            @Content(schema = @Schema(implementation = Comment.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Video not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/videos/{id}/comments")
-    public List<Comment> findByVideo(@Parameter(description = "id of the video to retrieve comments from")
-                                         @PathVariable String id) throws VideoNotFoundException {
+    public List<Comment> findByVideo(
+            @Parameter(description = "id of the video to retrieve comments from") @PathVariable String id
+    ) throws VideoNotFoundException {
         Optional<Video> video = videoRepository.findById(id);
-        if(video.isEmpty()) {
+
+        if (video.isEmpty()) {
             throw new VideoNotFoundException();
         }
+
         return video.get().getComments();
     }
 }

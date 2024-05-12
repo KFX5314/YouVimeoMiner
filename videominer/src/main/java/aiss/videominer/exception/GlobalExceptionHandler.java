@@ -19,9 +19,7 @@ public class GlobalExceptionHandler {
     @ResponseBody
     public ResponseEntity<Map<String, List<String>>> handleValidationException(MethodArgumentNotValidException ex) {
         List<FieldError> fieldErrors = ex.getBindingResult().getFieldErrors();
-        List<String> errors = fieldErrors.stream()
-                .map(FieldError::getDefaultMessage)
-                .collect(Collectors.toList());
+        List<String> errors = fieldErrors.stream().map(FieldError::getDefaultMessage).toList();
         Map<String, List<String>> res = new HashMap<>();
         res.put("errors", errors);
         return new ResponseEntity<>(res, HttpStatus.BAD_REQUEST);

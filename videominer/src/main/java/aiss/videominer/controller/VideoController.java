@@ -56,7 +56,8 @@ public class VideoController {
                                @Parameter(description = "property to sort by. Prefix with '-' for descending order")
                                    @RequestParam(required = false) String order) {
         Pageable paging;
-        if(order != null) {
+
+        if (order != null) {
             Sort.Direction direction = order.startsWith("-") ? Sort.Direction.DESC : Sort.Direction.ASC;
             String property = order.startsWith("-") ? order.substring(1) : order;
             paging = PageRequest.of(page, size, Sort.by(direction, property));
@@ -72,9 +73,11 @@ public class VideoController {
     }
 
     // GET http://localhost:8080/videominer/videos/{id}
-    @Operation( summary = "Retrieve a Video by Id",
+    @Operation(
+            summary = "Retrieve a Video by Id",
             description = "Get a Video object by specifying its id",
-            tags = { "videos", "get" })
+            tags = {"videos", "get"}
+    )
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Retrieved video",
                     content = { @Content(schema = @Schema(implementation = Video.class),
@@ -85,34 +88,54 @@ public class VideoController {
                     content = { @Content(schema = @Schema()) })
     })
     @GetMapping("/videos/{id}")
-    public Video findOne(@Parameter(description = "id of the video to be searched")
-                             @PathVariable String id) throws VideoNotFoundException {
+    public Video findOne(
+            @Parameter(description = "id of the video to be searched") @PathVariable String id
+    ) throws VideoNotFoundException {
         Optional<Video> video = repository.findById(id);
-        if(video.isEmpty()) {
+
+        if (video.isEmpty()) {
             throw new VideoNotFoundException();
         }
+
         return video.get();
     }
 
     // GET http://localhost:8080/videominer/channels/{id}/videos
-    @Operation( summary = "Retrieve all videos of a Channel by its Id",
+    @Operation(
+            summary = "Retrieve all videos of a Channel by its Id",
             description = "Get a all videos of a channel by specifying the id of the Channel",
-            tags = { "videos", "get" })
+            tags = {"videos", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Retrieved video",
-                    content = { @Content(schema = @Schema(implementation = Video.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description="Channel not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Retrieved video",
+                    content = {
+                            @Content(schema = @Schema(implementation = Video.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Channel not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/channels/{id}/videos")
-    public List<Video> findByChannel(@Parameter(description = "id of the channel to retrieve videos from")
-                                         @PathVariable String id) throws ChannelNotFoundException {
+    public List<Video> findByChannel(
+            @Parameter(description = "id of the channel to retrieve videos from") @PathVariable String id
+    ) throws ChannelNotFoundException {
         Optional<Channel> channel = channelRepository.findById(id);
-        if(channel.isEmpty()) {
+
+        if (channel.isEmpty()) {
             throw new ChannelNotFoundException();
         }
+
         return channel.get().getVideos();
     }
 
