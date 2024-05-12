@@ -42,7 +42,8 @@ public class UserController {
             @ApiResponse(responseCode = "200", description = "List of users",
                     content = { @Content(schema = @Schema(implementation = User.class),
                             mediaType = "application/json") }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(responseCode = "400", description = "Bad Request",
+                    content = { @Content(schema = @Schema()) })
     })
     @GetMapping("/users")
     public List<User> findAll() { return repository.findAll(); }
