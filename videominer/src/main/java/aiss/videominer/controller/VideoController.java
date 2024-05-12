@@ -36,25 +36,34 @@ public class VideoController {
     ChannelRepository channelRepository;
 
     // GET http://localhost:8080/videominer/videos
-    @Operation( summary = "Retrieve all videos",
+    @Operation(
+            summary = "Retrieve all videos",
             description = "Get all videos present on the database. Filtering by name, sorting and pagination is possible",
-            tags = { "videos", "get" })
+            tags = {"videos", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "List of videos",
-                    content = { @Content(schema = @Schema(implementation = Video.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "List of videos",
+                    content = {
+                            @Content(schema = @Schema(implementation = Video.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @GetMapping("/videos")
-    public List<Video> findAll(@Parameter(description = "page number for pagination. Default is 0")
-                                   @RequestParam(defaultValue = "0") int page,
-                               @Parameter(description = "number of items per page. Default is 10")
-                                   @RequestParam(defaultValue = "10") int size,
-                               @Parameter(description = "name of the video to be searched")
-                                   @RequestParam(required= false) String name,
-                               @Parameter(description = "property to sort by. Prefix with '-' for descending order")
-                                   @RequestParam(required = false) String order) {
+    public List<Video> findAll(
+            @Parameter(description = "page number for pagination. Default is 0") @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "number of items per page. Default is 10") @RequestParam(defaultValue = "10") int size,
+            @Parameter(description = "name of the video to be searched") @RequestParam(required = false) String name,
+            @Parameter(description = "property to sort by. Prefix with '-' for descending order") @RequestParam(required = false) String order
+    ) {
         Pageable paging;
 
         if (order != null) {
@@ -64,11 +73,14 @@ public class VideoController {
         } else {
             paging = PageRequest.of(page, size);
         }
+
         Page<Video> pageVideos;
-        if(name!= null)
+        if (name != null) {
             pageVideos = repository.findByName(name, paging);
-        else
-            pageVideos= repository.findAll(paging);
+        } else {
+            pageVideos = repository.findAll(paging);
+        }
+
         return pageVideos.getContent();
     }
 
@@ -80,12 +92,12 @@ public class VideoController {
     )
     @ApiResponses({
             @ApiResponse(responseCode = "200", description = "Retrieved video",
-                    content = { @Content(schema = @Schema(implementation = Video.class),
-                            mediaType = "application/json") }),
+                    content = {@Content(schema = @Schema(implementation = Video.class),
+                            mediaType = "application/json")}),
             @ApiResponse(responseCode = "404", description = "Video not found",
-                    content = { @Content(schema = @Schema()) }),
+                    content = {@Content(schema = @Schema())}),
             @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+                    content = {@Content(schema = @Schema())})
     })
     @GetMapping("/videos/{id}")
     public Video findOne(
@@ -140,51 +152,88 @@ public class VideoController {
     }
 
     // PUT http://localhost:8080/videominer/videos/{id}
-    @Operation( summary = "Update a video",
+    @Operation(
+            summary = "Update a video",
             description = "Updates the content of the video whose id is given",
-            tags = { "videos", "put" })
+            tags = {"videos", "put"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Video updated",
-                    content = {@Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "404", description = "Video not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "Video updated",
+                    content = {
+                            @Content(schema = @Schema())
+                    }),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Video not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/videos/{id}")
-    public void update(@Parameter(description = "updated video")
-                       @Valid @RequestBody Video newVideo,
-                       @Parameter(description = "id of video to be updated")
-                       @PathVariable String id) throws VideoNotFoundException {
+    public void update(
+            @Parameter(description = "updated video") @Valid @RequestBody Video newVideo,
+            @Parameter(description = "id of video to be updated") @PathVariable String id
+    ) throws VideoNotFoundException {
         Optional<Video> oldVideo = repository.findById(id);
-        if(oldVideo.isEmpty()) {
+
+        if (oldVideo.isEmpty()) {
             throw new VideoNotFoundException();
         }
+
         Video video = oldVideo.get();
         video.setName(newVideo.getName());
         video.setDescription(newVideo.getDescription());
         video.setComments(newVideo.getComments());
         video.setCaptions(newVideo.getCaptions());
+
         repository.save(video);
     }
 
     // DELETE http://localhost:8080/videominer/videos/{id}
-    @Operation( summary = "Delete a video",
+    @Operation(
+            summary = "Delete a video",
             description = "Deletes the video whose id is given",
-            tags = { "videos", "delete" })
+            tags = {"videos", "delete"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Video deleted",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "404", description = "Video not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "Video deleted",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Video not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/videos/{id}")
-    public void delete(@Parameter(description = "id of video to be deleted")
-                       @PathVariable String id) throws VideoNotFoundException {
+    public void delete(
+            @Parameter(description = "id of video to be deleted") @PathVariable String id
+    ) throws VideoNotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
         } else {

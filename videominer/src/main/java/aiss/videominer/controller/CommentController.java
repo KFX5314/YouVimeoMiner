@@ -39,11 +39,20 @@ public class CommentController {
             tags = {"comments", "get"}
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "List of comments",
-                    content = { @Content(schema = @Schema(implementation = Comment.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "List of comments",
+                    content = {
+                            @Content(schema = @Schema(implementation = Comment.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @GetMapping("/comments")
     public List<Comment> findAll() {

@@ -31,33 +31,44 @@ public class ChannelController {
     ChannelRepository repository;
 
     // GET http://localhost:8080/videominer/channels
-    @Operation( summary = "Retrieve all channels",
+    @Operation(
+            summary = "Retrieve all channels",
             description = "Get all channels present on the database. Filtering by name, sorting and pagination is possible",
-            tags = { "channels", "get" })
+            tags = {"channels", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "List of channels",
-                    content = { @Content(schema = @Schema(implementation = Channel.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "List of channels",
+                    content = {
+                            @Content(schema = @Schema(implementation = Channel.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @GetMapping("/channels")
-    public List<Channel> findAll(@Parameter(description = "page number for pagination. Default is 0")
-                                     @RequestParam(defaultValue = "0") int page,
-                                 @Parameter(description = "number of items per page. Default is 10")
-                                     @RequestParam(defaultValue = "10") int size,
-                                 @Parameter(description = "name of the channel to be searched")
-                                     @RequestParam(required= false) String name,
-                                 @Parameter(description = "property to sort by. Prefix with '-' for descending order")
-                                     @RequestParam(required = false) String order) {
+    public List<Channel> findAll(
+            @Parameter(description = "page number for pagination. Default is 0") @RequestParam(defaultValue = "0") int page,
+            @Parameter(description = "number of items per page. Default is 10") @RequestParam(defaultValue = "10") int size,
+            @Parameter(description = "name of the channel to be searched") @RequestParam(required = false) String name,
+            @Parameter(description = "property to sort by. Prefix with '-' for descending order") @RequestParam(required = false) String order
+    ) {
         Pageable paging;
-        if(order != null) {
+
+        if (order != null) {
             Sort.Direction direction = order.startsWith("-") ? Sort.Direction.DESC : Sort.Direction.ASC;
             String property = order.startsWith("-") ? order.substring(1) : order;
             paging = PageRequest.of(page, size, Sort.by(direction, property));
         } else {
             paging = PageRequest.of(page, size);
         }
+
         Page<Channel> pageChannels;
 
         if (name != null) {
@@ -105,68 +116,118 @@ public class ChannelController {
     }
 
     // POST http://localhost:8080/videominer/channels
-    @Operation( summary = "Create a channel",
+    @Operation(
+            summary = "Create a channel",
             description = "Create a new channel",
-            tags = { "channels", "post" })
+            tags = {"channels", "post"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "201", description = "Channel created",
-                    content = {@Content(schema = @Schema(implementation = Channel.class),
-                            mediaType = "application/json")}),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = {@Content(schema = @Schema())})
+            @ApiResponse(
+                    responseCode = "201",
+                    description = "Channel created",
+                    content = {
+                            @Content(schema = @Schema(implementation = Channel.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @ResponseStatus(HttpStatus.CREATED)
     @PostMapping("/channels")
-    public Channel create(@Parameter(description = "channel to be created")
-                          @Valid @RequestBody Channel channel) {
+    public Channel create(
+            @Parameter(description = "channel to be created") @Valid @RequestBody Channel channel
+    ) {
         return repository.save(channel);
     }
 
     // PUT http://localhost:8080/videominer/channels/{id}
-    @Operation( summary = "Update a channel",
+    @Operation(
+            summary = "Update a channel",
             description = "Updates the content of the channel whose id is given",
-            tags = { "channels", "put" })
+            tags = {"channels", "put"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Channel updated",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "404", description = "Channel not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "Channel updated",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Channel not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @PutMapping("/channels/{id}")
-    public void update(@Parameter(description = "updated channel")
-                           @Valid @RequestBody Channel newChannel,
-                       @Parameter(description = "id of channel to be updated")
-                           @PathVariable String id) throws ChannelNotFoundException {
+    public void update(
+            @Parameter(description = "updated channel") @Valid @RequestBody Channel newChannel,
+            @Parameter(description = "id of channel to be updated") @PathVariable String id
+    ) throws ChannelNotFoundException {
         Optional<Channel> oldChannel = repository.findById(id);
-        if(oldChannel.isEmpty()) {
+
+        if (oldChannel.isEmpty()) {
             throw new ChannelNotFoundException();
         }
+
         Channel channel = oldChannel.get();
         channel.setName(newChannel.getName());
         channel.setDescription(newChannel.getDescription());
         channel.setVideos(newChannel.getVideos());
+
         repository.save(channel);
     }
 
     // DELETE http://localhost:8080/videominer/channels/{id}
-    @Operation( summary = "Delete a channel",
+    @Operation(
+            summary = "Delete a channel",
             description = "Deletes the channel whose id is given",
-            tags = { "channels", "delete" })
+            tags = {"channels", "delete"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "204", description = "Channel deleted",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "404", description = "Channel not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = { @Content(schema = @Schema()) })
+            @ApiResponse(
+                    responseCode = "204",
+                    description = "Channel deleted",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Channel not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @ResponseStatus(HttpStatus.NO_CONTENT)
     @DeleteMapping("/channels/{id}")
-    public void delete(@Parameter(description = "id of channel to be deleted")
-                           @PathVariable String id) throws ChannelNotFoundException {
+    public void delete(
+            @Parameter(description = "id of channel to be deleted") @PathVariable String id
+    ) throws ChannelNotFoundException {
         if (repository.existsById(id)) {
             repository.deleteById(id);
         } else {

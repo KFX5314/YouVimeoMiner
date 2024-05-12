@@ -3,7 +3,6 @@ package aiss.videominer.controller;
 import aiss.videominer.exception.CaptionNotFoundException;
 import aiss.videominer.exception.VideoNotFoundException;
 import aiss.videominer.model.Caption;
-import aiss.videominer.model.Comment;
 import aiss.videominer.model.Video;
 import aiss.videominer.repository.CaptionRepository;
 import aiss.videominer.repository.VideoRepository;
@@ -40,10 +39,17 @@ public class CaptionController {
             tags = {"captions", "get"}
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "List of captions",
-                    content = { @Content(schema = @Schema(implementation = Caption.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "List of captions",
+                    content = {
+                            @Content(schema = @Schema(implementation = Caption.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/captions")
     public List<Caption> findAll() {
