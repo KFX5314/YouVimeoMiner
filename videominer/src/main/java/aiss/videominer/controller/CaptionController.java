@@ -72,7 +72,10 @@ public class CaptionController {
             ),
             @ApiResponse(
                     responseCode = "400",
-                    description = "Bad Request"
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
             )
     })
     @GetMapping("/captions/{id}")
