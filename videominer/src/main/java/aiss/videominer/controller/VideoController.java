@@ -91,13 +91,27 @@ public class VideoController {
             tags = {"videos", "get"}
     )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Retrieved video",
-                    content = {@Content(schema = @Schema(implementation = Video.class),
-                            mediaType = "application/json")}),
-            @ApiResponse(responseCode = "404", description = "Video not found",
-                    content = {@Content(schema = @Schema())}),
-            @ApiResponse(responseCode = "400", description = "Bad Request",
-                    content = {@Content(schema = @Schema())})
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Retrieved video",
+                    content = {
+                            @Content(schema = @Schema(implementation = Video.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Video not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            )
     })
     @GetMapping("/videos/{id}")
     public Video findOne(

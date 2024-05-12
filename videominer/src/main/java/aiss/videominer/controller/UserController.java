@@ -2,10 +2,8 @@ package aiss.videominer.controller;
 
 import aiss.videominer.exception.CommentNotFoundException;
 import aiss.videominer.exception.UserNotFoundException;
-import aiss.videominer.exception.VideoNotFoundException;
 import aiss.videominer.model.Comment;
 import aiss.videominer.model.User;
-import aiss.videominer.model.Video;
 import aiss.videominer.repository.CommentRepository;
 import aiss.videominer.repository.UserRepository;
 import io.swagger.v3.oas.annotations.Operation;
@@ -89,7 +87,7 @@ public class UserController {
     })
     @GetMapping("/users/{id}")
     public User findOne(
-            @Parameter(description = "id of the user to be searched") @PathVariable String id
+            @Parameter(description = "id of the user to be searched") @PathVariable Long id
     ) throws UserNotFoundException {
         Optional<User> user = repository.findById(id);
 
