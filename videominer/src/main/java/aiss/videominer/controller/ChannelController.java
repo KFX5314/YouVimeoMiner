@@ -6,6 +6,9 @@ import aiss.videominer.repository.ChannelRepository;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
@@ -21,8 +24,16 @@ public class ChannelController {
 
     // GET http://localhost:8080/videominer/channels
     @GetMapping("/channels")
-    public List<Channel> findAll() {
-        return repository.findAll();
+    public List<Channel> findAll(@RequestParam(defaultValue = "0")int page,
+                                 @RequestParam(defaultValue = "10")int size,
+                                 @RequestParam(required= false) String name) {
+        Pageable paging = PageRequest.of(page, size);
+        Page<Channel> pageChannels;
+        if(name!= null)
+            pageChannels = repository.findByName(name, paging);
+        else
+            pageChannels= repository.findAll(paging);
+        return pageChannels.getContent();
     }
 
     // GET http://localhost:8080/videominer/channels/{id}
