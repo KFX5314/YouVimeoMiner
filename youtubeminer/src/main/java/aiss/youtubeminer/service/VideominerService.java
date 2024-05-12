@@ -13,7 +13,6 @@ public class VideominerService {
     @Autowired
     private RestTemplate restTemplate;
 
-    // TODO: NO PROBADO
     public Channel saveChannel(aiss.youtubeminer.model.youtube.channel.Channel ytChannel) {
         Channel videoChannel = new Channel();
         videoChannel.setId(ytChannel.getId());

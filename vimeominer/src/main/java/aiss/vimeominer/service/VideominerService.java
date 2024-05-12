@@ -37,8 +37,6 @@ public class VideominerService {
                 comment.setCreatedOn(c.getCreatedOn());
 
                 User user = new User();
-
-                user.setId(Long.parseLong(c.getUser().getId()));
                 user.setName(c.getUser().getName());
                 user.setUser_link(c.getUser().getUser_link());
                 user.setPicture_link(c.getUser().getPicture_link());
