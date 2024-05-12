@@ -35,59 +35,103 @@ public class UserController {
     CommentRepository commentRepository;
 
     // GET http://localhost:8080/videominer/users
-    @Operation( summary = "Retrieve all users on the database",
+    @Operation(
+            summary = "Retrieve all users on the database",
             description = "Get all users present on the database",
-            tags = { "users", "get" })
+            tags = {"users", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "List of users",
-                    content = { @Content(schema = @Schema(implementation = User.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200", description = "List of users",
+                    content = {
+                            @Content(schema = @Schema(implementation = User.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/users")
-    public List<User> findAll() { return repository.findAll(); }
+    public List<User> findAll() {
+        return repository.findAll();
+    }
 
     // GET http://localhost:8080/videominer/users/{id}
-    @Operation( summary = "Retrieve a User by Id",
+    @Operation(
+            summary = "Retrieve a User by Id",
             description = "Get a User object by specifying its id",
-            tags = { "users", "get" })
+            tags = {"users", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Retrieved user",
-                    content = { @Content(schema = @Schema(implementation = User.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description = "User not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Retrieved user",
+                    content = {
+                            @Content(schema = @Schema(implementation = User.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "User not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/users/{id}")
-    public User findOne(@Parameter(description = "id of the user to be searched")
-                            @PathVariable String id) throws UserNotFoundException {
+    public User findOne(
+            @Parameter(description = "id of the user to be searched") @PathVariable String id
+    ) throws UserNotFoundException {
         Optional<User> user = repository.findById(id);
-        if(user.isEmpty()) {
+
+        if (user.isEmpty()) {
             throw new UserNotFoundException();
         }
+
         return user.get();
     }
 
     // GET http://localhost:8080/videominer/comments/{id}/user
-    @Operation( summary = "Retrieve the User of a Comment by its Id",
+    @Operation(
+            summary = "Retrieve the User of a Comment by its Id",
             description = "Get a User object by specifying the id of its Comment",
-            tags = { "users", "get" })
+            tags = {"users", "get"}
+    )
     @ApiResponses({
-            @ApiResponse(responseCode = "200", description = "Retrieved user",
-                    content = { @Content(schema = @Schema(implementation = User.class),
-                            mediaType = "application/json") }),
-            @ApiResponse(responseCode = "404", description = "Comment not found",
-                    content = { @Content(schema = @Schema()) }),
-            @ApiResponse(responseCode = "400", description = "Bad Request")
+            @ApiResponse(
+                    responseCode = "200",
+                    description = "Retrieved user",
+                    content = {
+                            @Content(schema = @Schema(implementation = User.class), mediaType = "application/json")
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "404",
+                    description = "Comment not found",
+                    content = {
+                            @Content(schema = @Schema())
+                    }
+            ),
+            @ApiResponse(
+                    responseCode = "400",
+                    description = "Bad Request"
+            )
     })
     @GetMapping("/comments/{id}/user")
-    public User findAuthor(@Parameter(description = "id of the comment to retrieve the user from")
-                               @PathVariable String id) throws CommentNotFoundException {
+    public User findAuthor(
+            @Parameter(description = "id of the comment to retrieve the user from") @PathVariable String id
+    ) throws CommentNotFoundException {
         Optional<Comment> comment = commentRepository.findById(id);
-        if(comment.isEmpty()) {
+
+        if (comment.isEmpty()) {
             throw new CommentNotFoundException();
         }
+
         return comment.get().getAuthor();
     }
 }
