@@ -1,0 +1,459 @@
+{
+	"info": {
+		"_postman_id": "d2bc84bc-3265-499d-9fa7-f5aeabaad0ed",
+		"name": "YouTubeMiner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33752056",
+		"_collection_link": "https://warped-meteor-325341.postman.co/workspace/proyecto-aiss~7cd4fe6d-c0d6-4e43-8848-724aacafaccf/collection/33752056-d2bc84bc-3265-499d-9fa7-f5aeabaad0ed?action=share&source=collection_link&creator=33752056"
+	},
+	"item": [
+		{
+			"name": "YouTubeAPI examples",
+			"item": [
+				{
+					"name": "YouTubeAPI search videos",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/search?key=%23API_KEY&part=snippet&q=Mark Knopfler&type=video",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"search"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "#API_KEY"
+								},
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "q",
+									"value": "Mark Knopfler"
+								},
+								{
+									"key": "type",
+									"value": "video"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YouTubeAPI get channel by name",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/channels?key=%23API_KEY&part=snippet&forHandle=@georainbolt",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "#API_KEY"
+								},
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "forHandle",
+									"value": "@georainbolt"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Dame la id por el nombre",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/channels?key=%23API_KEY&part=id&forHandle=@42FundacionTelefonica",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "key",
+									"value": "#API_KEY"
+								},
+								{
+									"key": "part",
+									"value": "id"
+								},
+								{
+									"key": "forHandle",
+									"value": "@42FundacionTelefonica"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YouTubeAPI get channel by id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/channels?part=snippet&id=UC_slDWTPHflhuZqbGc8u4yA",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "id",
+									"value": "UC_slDWTPHflhuZqbGc8u4yA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YouTubeAPI get max videos from channel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=UCX6OQ3DkcsbYNE6H8uQQuVA&maxResults=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"search"
+							],
+							"query": [
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "channelId",
+									"value": "UCX6OQ3DkcsbYNE6H8uQQuVA"
+								},
+								{
+									"key": "maxResults",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YouTubeAPI get commentThread from video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/commentThreads?part=snippet&videoId=275VkeAlu90&maxResults=10",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"commentThreads"
+							],
+							"query": [
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "videoId",
+									"value": "275VkeAlu90"
+								},
+								{
+									"key": "maxResults",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YouTubeAPI get captions from video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://www.googleapis.com/youtube/v3/captions?part=snippet&videoId=275VkeAlu90",
+							"protocol": "https",
+							"host": [
+								"www",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"captions"
+							],
+							"query": [
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "videoId",
+									"value": "275VkeAlu90"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "YouTubeAPI get captions from video Copy",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-goog-api-key",
+								"value": "API_KEY",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "https://youtube.googleapis.com/youtube/v3/captions?part=snippet&videoId=M7FIvfx5J10",
+							"protocol": "https",
+							"host": [
+								"youtube",
+								"googleapis",
+								"com"
+							],
+							"path": [
+								"youtube",
+								"v3",
+								"captions"
+							],
+							"query": [
+								{
+									"key": "part",
+									"value": "snippet"
+								},
+								{
+									"key": "videoId",
+									"value": "M7FIvfx5J10"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test GET Canal by Id",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-goog-api-key",
+						"value": "API_KEY"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8082/youtubeminer/channels/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"youtubeminer",
+						"channels",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "UC_slDWTPHflhuZqbGc8u4yA"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test GET by Id fallido",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-goog-api-key",
+						"value": "API_KEY",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8082/youtubeminer/channels/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"youtubeminer",
+						"channels",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "UC_slDWTPHflhuZqbGc8u4yc"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test de POST Canal by Id",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-goog-api-key",
+						"value": "API_KEY"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8082/youtubeminer/channels/:id",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8082",
+					"path": [
+						"youtubeminer",
+						"channels",
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "UC_slDWTPHflhuZqbGc8u4yA"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

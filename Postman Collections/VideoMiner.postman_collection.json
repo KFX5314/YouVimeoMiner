@@ -1,0 +1,1487 @@
+{
+	"info": {
+		"_postman_id": "190b0d2b-47c8-4557-b4b1-f43eeef52c70",
+		"name": "VideoMiner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33752056",
+		"_collection_link": "https://warped-meteor-325341.postman.co/workspace/proyecto-aiss~7cd4fe6d-c0d6-4e43-8848-724aacafaccf/collection/33751621-190b0d2b-47c8-4557-b4b1-f43eeef52c70?action=share&source=collection_link&creator=33752056"
+	},
+	"item": [
+		{
+			"name": "Channel",
+			"item": [
+				{
+					"name": "Create Channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 201\", function () {\r",
+									"    pm.response.to.have.status(201);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"UC4zyoIAzmdsgpDZQfO1-lSA\"); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"UC4zyoIAzmdsgpDZQfO1-lSA\",\r\n    \"name\": \"Cyberpunk 2077\",\r\n    \"description\": \"Welcome to the official YouTube channel of the Cyberpunk 2077 franchise — from the open-world, action-adventure RPG and its spy-thriller expansion Phantom Liberty to the explosive anime Cyberpunk: Edgerunners created in collaboration with Studio Trigger — all set in Night City, a megalopolis obsessed with power, glamour, and body modification. Developed by CD PROJEKT RED.\",\r\n    \"createdTime\": \"2012-09-13T07:44:02Z\",\r\n    \"videos\": [\r\n        {\r\n            \"id\": \"U8qJc6znzZc\",\r\n            \"name\": \"Cyberpunk 2077 — Seize the Day\",\r\n            \"description\": \"Check out the new Cyberpunk 2077 commercial starring Keanu Reeves! Cyberpunk 2077, an open-world, action-adventure story ...\",\r\n            \"releaseTime\": \"2020-10-01T07:59:35Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"UgyXzAM8ZVmReWXGzZZ4AaABAg\",\r\n                    \"text\": \"If 2.0 was 1.0 this game wouldve defied the gravitational pull of the whole universe\",\r\n                    \"createdOn\": \"2023-11-23T23:27:38Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@nliosofficial4272\",\r\n                        \"user_link\": \"http://www.youtube.com/@nliosofficial4272\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZTLZC0OLs2GjnirArEfmSchSwLNlCzgZGyee8g8NQ=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"Ugzf8XiaOucjS0jsiAJ4AaABAg\",\r\n                    \"text\": \"i remember seeing this trailer on TV and been wanting to play it on a PS5 ever since. just completed the story + phantom liberty few weeks back. i really love cyberpunk and the entire genre dystopia. easily my favourite game ever\",\r\n                    \"createdOn\": \"2023-10-30T12:09:19Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@wrxlth\",\r\n                        \"user_link\": \"http://www.youtube.com/@wrxlth\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/fiRmHeOAE2UVonxV3HjfKdR6Cr5Cl14eDVsMjwGYuN4Eaf6OxsDWvW_QGRu98YDk6_gFxIfk=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"AUieDaaK3kB8K8SywqeHvjWEmxwQozpP3boqD_mNW0L_LogrTyY\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"en\"\r\n                },\r\n                {\r\n                    \"id\": \"AUieDaZoQwnH9B7TX-kjJsFI0dUsHBT7Snvx1Grpn3qY\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"de\"\r\n                },\r\n                {\r\n                    \"id\": \"AUieDabLhwMNJw0xx3dd5RIXXa1iwiMse8npwUrooI6v\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"en\"\r\n                },\r\n                {\r\n                    \"id\": \"AUieDaYJ5oCG0DQLMznssVtsRo3Mj1L1CRomG-8QgUh6\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"es\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"6a8f1TbYb2w\",\r\n            \"name\": \"Cyberpunk 2077 — The Diner\",\r\n            \"description\": \"V walks into a diner... Cyberpunk 2077, an open-world, action-adventure story from CD PROJEKT RED, is coming to Xbox One, ...\",\r\n            \"releaseTime\": \"2020-10-15T16:25:01Z\",\r\n            \"comments\": [],\r\n            \"captions\": []\r\n        },\r\n        {\r\n            \"id\": \"cGmWwFpNIHg\",\r\n            \"name\": \"Cyberpunk 2077 title reveal\",\r\n            \"description\": \"Check out the 2018 E3 trailer for Cyberpunk 2077 here: https://youtu.be/8X2kIfS6fb8] ESRB RATING PENDING: May contain ...\",\r\n            \"releaseTime\": \"2012-10-19T08:13:43Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"UgyjPHQjt4jDgCcaUjN4AaABAg\",\r\n                    \"text\": \"This is one of the best games that I played in my life. Can’t wait for the next one.\",\r\n                    \"createdOn\": \"2024-01-10T18:34:22Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@utiuandy99\",\r\n                        \"user_link\": \"http://www.youtube.com/@utiuandy99\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZQARESozBm6wZv0f2XiT0qd-lUzt3I9kXyIDScOhjU=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"Ugx6BQisKM2STpZo3-t4AaABAg\",\r\n                    \"text\": \"Absolutely insane this game was fucking announced before the PS4 and Xbox One had even released\",\r\n                    \"createdOn\": \"2023-12-31T22:59:53Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@JasonSteel-hk2tx\",\r\n                        \"user_link\": \"http://www.youtube.com/@JasonSteel-hk2tx\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZTMSGDxjlvTKp0fubQQDeNOU41yWZBZ7DL-5NZdYRI2XmiW2wG2A6_Ozt3Dl05u=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": []\r\n        },\r\n        {\r\n            \"id\": \"8X2kIfS6fb8\",\r\n            \"name\": \"Cyberpunk 2077 — Official E3 2018 Trailer\",\r\n            \"description\": \"Watch the E3 trailer for Cyberpunk 2077 — the role-playing game of the dark future from CD PROJEKT RED, creators of The ...\",\r\n            \"releaseTime\": \"2018-06-10T21:40:15Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"Ugx3a4L6RZo-g2VDDYZ4AaABAg\",\r\n                    \"text\": \"Looking back from 2024 you'd never think how incredible this game turned out to be\",\r\n                    \"createdOn\": \"2024-01-29T15:04:19Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@user-gf5vz4zu7b\",\r\n                        \"user_link\": \"http://www.youtube.com/@user-gf5vz4zu7b\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/3fqIzsOIsIF1xYJSCqN5SIrmb1-vuAC5rUwOkUhg9aJ-LKwgHYqe4uxLRU53ObbaSiObxZfuFNo=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"AUieDaZqHShnCViBXtWG-9yymjqkVec1Nf8w1p0kgRTA\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"en\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"kfX9n_G0N2Y\",\r\n            \"name\": \"Cyberpunk 2077: Phantom Liberty — Official Launch Trailer\",\r\n            \"description\": \"Gear up, Agents! It's time for the Cyberpunk 2077: Phantom Liberty Launch Trailer! Get ready to play — and try not to get played.\",\r\n            \"releaseTime\": \"2023-09-25T12:02:24Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"UgxI9NtJiXx_fD5gJR54AaABAg\",\r\n                    \"text\": \"PSA: You can now listen to the “Phantom Liberty” song by Dawid Podsiadło & P.T. Adamczyk on:\\n\\n🎶 YouTube: https://youtu.be/u15tEo0wsQI\\n🎶 Spotify and other streaming services: https://dawidpodsiadlo.lnk.to/PhantomLiberty\",\r\n                    \"createdOn\": \"2023-09-29T12:51:05Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@CyberpunkGame\",\r\n                        \"user_link\": \"http://www.youtube.com/@CyberpunkGame\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/skAODIZ07KvllI7tXL6ERzwZn1ECRCdIPehY4dV5AvaD9xxu6L2Q-rm6his2ImwQgSGISmJtgg=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"UgwcDkvbz1EaTZdk2ql4AaABAg\",\r\n                    \"text\": \"I used to pray for times like this.\",\r\n                    \"createdOn\": \"2024-01-31T13:18:59Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@WOOYOUNGFCWOOYOUNGFC\",\r\n                        \"user_link\": \"http://www.youtube.com/@WOOYOUNGFCWOOYOUNGFC\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZS0aIxD_Zb0JshzZBmnAoxTUxQD1_0LoqZ2WHkAgOWAHLFPEqLESG7gtp6K3rf2=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"UgyLiZKL-tCd3yh8AuB4AaABAg\",\r\n                    \"text\": \"This trailer hits so hard with the song\",\r\n                    \"createdOn\": \"2024-01-27T18:47:45Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@visualsamurai2149\",\r\n                        \"user_link\": \"http://www.youtube.com/@visualsamurai2149\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZT5tUAjZsZ2Nyotp1Bd776O-uqA6lxN5YUDhjwg4ZI=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"Ugx8xYQwvE4fk4Ps9cN4AaABAg\",\r\n                    \"text\": \"One of the BEST EXPANSIONS ever made.\",\r\n                    \"createdOn\": \"2024-01-24T11:58:12Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@theandroids\",\r\n                        \"user_link\": \"http://www.youtube.com/@theandroids\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZQOWxpPR1RbyD5ibBSxSpxSo3dYFpGopghEjPZ_=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"UgzZAz48TONaKrEvpfJ4AaABAg\",\r\n                    \"text\": \"This game will forever hold a special place in my heart. What a bittersweet masterpiece\",\r\n                    \"createdOn\": \"2024-01-23T18:16:19Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@JarlRagnaar\",\r\n                        \"user_link\": \"http://www.youtube.com/@JarlRagnaar\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/EdK0wYTMXT389wW1pdXzqthM4_PcwxtvN1XoXqKRuc6W0GOvCLQr4HNDpY9XXQcrkk9VYYlfWxc=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"AUieDaZZRlwrJvH9lbWXCdLBeeAQdXF7_p4HEh1NKbvR\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"ar\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", function () {\r",
+									"    pm.response.to.have.status(204);\r",
+									"});\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						},
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"UC4zyoIAzmdsgpDZQfO1-lSA\",\r\n    \"name\": \"Gamberro Cibernetico 2077\",\r\n    \"description\": \"Welcome to the official YouTube channel of the Cyberpunk 2077 franchise — from the open-world, action-adventure RPG and its spy-thriller expansion Phantom Liberty to the explosive anime Cyberpunk: Edgerunners created in collaboration with Studio Trigger — all set in Night City, a megalopolis obsessed with power, glamour, and body modification. Developed by CD PROJEKT RED.\",\r\n    \"createdTime\": \"2012-09-13T07:44:02Z\",\r\n    \"videos\": [\r\n        {\r\n            \"id\": \"U8qJc6znzZc\",\r\n            \"name\": \"Cyberpunk 2077 — Seize the Day\",\r\n            \"description\": \"Check out the new Cyberpunk 2077 commercial starring Keanu Reeves! Cyberpunk 2077, an open-world, action-adventure story ...\",\r\n            \"releaseTime\": \"2020-10-01T07:59:35Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"UgyXzAM8ZVmReWXGzZZ4AaABAg\",\r\n                    \"text\": \"If 2.0 was 1.0 this game wouldve defied the gravitational pull of the whole universe\",\r\n                    \"createdOn\": \"2023-11-23T23:27:38Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@nliosofficial4272\",\r\n                        \"user_link\": \"http://www.youtube.com/@nliosofficial4272\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZTLZC0OLs2GjnirArEfmSchSwLNlCzgZGyee8g8NQ=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"Ugzf8XiaOucjS0jsiAJ4AaABAg\",\r\n                    \"text\": \"i remember seeing this trailer on TV and been wanting to play it on a PS5 ever since. just completed the story + phantom liberty few weeks back. i really love cyberpunk and the entire genre dystopia. easily my favourite game ever\",\r\n                    \"createdOn\": \"2023-10-30T12:09:19Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@wrxlth\",\r\n                        \"user_link\": \"http://www.youtube.com/@wrxlth\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/fiRmHeOAE2UVonxV3HjfKdR6Cr5Cl14eDVsMjwGYuN4Eaf6OxsDWvW_QGRu98YDk6_gFxIfk=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"AUieDaaK3kB8K8SywqeHvjWEmxwQozpP3boqD_mNW0L_LogrTyY\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"en\"\r\n                },\r\n                {\r\n                    \"id\": \"AUieDaZoQwnH9B7TX-kjJsFI0dUsHBT7Snvx1Grpn3qY\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"de\"\r\n                },\r\n                {\r\n                    \"id\": \"AUieDabLhwMNJw0xx3dd5RIXXa1iwiMse8npwUrooI6v\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"en\"\r\n                },\r\n                {\r\n                    \"id\": \"AUieDaYJ5oCG0DQLMznssVtsRo3Mj1L1CRomG-8QgUh6\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"es\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"6a8f1TbYb2w\",\r\n            \"name\": \"Cyberpunk 2077 — The Diner\",\r\n            \"description\": \"V walks into a diner... Cyberpunk 2077, an open-world, action-adventure story from CD PROJEKT RED, is coming to Xbox One, ...\",\r\n            \"releaseTime\": \"2020-10-15T16:25:01Z\",\r\n            \"comments\": [],\r\n            \"captions\": []\r\n        },\r\n        {\r\n            \"id\": \"cGmWwFpNIHg\",\r\n            \"name\": \"Cyberpunk 2077 title reveal\",\r\n            \"description\": \"Check out the 2018 E3 trailer for Cyberpunk 2077 here: https://youtu.be/8X2kIfS6fb8] ESRB RATING PENDING: May contain ...\",\r\n            \"releaseTime\": \"2012-10-19T08:13:43Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"UgyjPHQjt4jDgCcaUjN4AaABAg\",\r\n                    \"text\": \"This is one of the best games that I played in my life. Can’t wait for the next one.\",\r\n                    \"createdOn\": \"2024-01-10T18:34:22Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@utiuandy99\",\r\n                        \"user_link\": \"http://www.youtube.com/@utiuandy99\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZQARESozBm6wZv0f2XiT0qd-lUzt3I9kXyIDScOhjU=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"Ugx6BQisKM2STpZo3-t4AaABAg\",\r\n                    \"text\": \"Absolutely insane this game was fucking announced before the PS4 and Xbox One had even released\",\r\n                    \"createdOn\": \"2023-12-31T22:59:53Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@JasonSteel-hk2tx\",\r\n                        \"user_link\": \"http://www.youtube.com/@JasonSteel-hk2tx\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZTMSGDxjlvTKp0fubQQDeNOU41yWZBZ7DL-5NZdYRI2XmiW2wG2A6_Ozt3Dl05u=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": []\r\n        },\r\n        {\r\n            \"id\": \"8X2kIfS6fb8\",\r\n            \"name\": \"Cyberpunk 2077 — Official E3 2018 Trailer\",\r\n            \"description\": \"Watch the E3 trailer for Cyberpunk 2077 — the role-playing game of the dark future from CD PROJEKT RED, creators of The ...\",\r\n            \"releaseTime\": \"2018-06-10T21:40:15Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"Ugx3a4L6RZo-g2VDDYZ4AaABAg\",\r\n                    \"text\": \"Looking back from 2024 you'd never think how incredible this game turned out to be\",\r\n                    \"createdOn\": \"2024-01-29T15:04:19Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@user-gf5vz4zu7b\",\r\n                        \"user_link\": \"http://www.youtube.com/@user-gf5vz4zu7b\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/3fqIzsOIsIF1xYJSCqN5SIrmb1-vuAC5rUwOkUhg9aJ-LKwgHYqe4uxLRU53ObbaSiObxZfuFNo=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"AUieDaZqHShnCViBXtWG-9yymjqkVec1Nf8w1p0kgRTA\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"en\"\r\n                }\r\n            ]\r\n        },\r\n        {\r\n            \"id\": \"kfX9n_G0N2Y\",\r\n            \"name\": \"Cyberpunk 2077: Phantom Liberty — Official Launch Trailer\",\r\n            \"description\": \"Gear up, Agents! It's time for the Cyberpunk 2077: Phantom Liberty Launch Trailer! Get ready to play — and try not to get played.\",\r\n            \"releaseTime\": \"2023-09-25T12:02:24Z\",\r\n            \"comments\": [\r\n                {\r\n                    \"id\": \"UgxI9NtJiXx_fD5gJR54AaABAg\",\r\n                    \"text\": \"PSA: You can now listen to the “Phantom Liberty” song by Dawid Podsiadło & P.T. Adamczyk on:\\n\\n🎶 YouTube: https://youtu.be/u15tEo0wsQI\\n🎶 Spotify and other streaming services: https://dawidpodsiadlo.lnk.to/PhantomLiberty\",\r\n                    \"createdOn\": \"2023-09-29T12:51:05Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@CyberpunkGame\",\r\n                        \"user_link\": \"http://www.youtube.com/@CyberpunkGame\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/skAODIZ07KvllI7tXL6ERzwZn1ECRCdIPehY4dV5AvaD9xxu6L2Q-rm6his2ImwQgSGISmJtgg=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"UgwcDkvbz1EaTZdk2ql4AaABAg\",\r\n                    \"text\": \"I used to pray for times like this.\",\r\n                    \"createdOn\": \"2024-01-31T13:18:59Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@WOOYOUNGFCWOOYOUNGFC\",\r\n                        \"user_link\": \"http://www.youtube.com/@WOOYOUNGFCWOOYOUNGFC\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZS0aIxD_Zb0JshzZBmnAoxTUxQD1_0LoqZ2WHkAgOWAHLFPEqLESG7gtp6K3rf2=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"UgyLiZKL-tCd3yh8AuB4AaABAg\",\r\n                    \"text\": \"This trailer hits so hard with the song\",\r\n                    \"createdOn\": \"2024-01-27T18:47:45Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@visualsamurai2149\",\r\n                        \"user_link\": \"http://www.youtube.com/@visualsamurai2149\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZT5tUAjZsZ2Nyotp1Bd776O-uqA6lxN5YUDhjwg4ZI=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"Ugx8xYQwvE4fk4Ps9cN4AaABAg\",\r\n                    \"text\": \"One of the BEST EXPANSIONS ever made.\",\r\n                    \"createdOn\": \"2024-01-24T11:58:12Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@theandroids\",\r\n                        \"user_link\": \"http://www.youtube.com/@theandroids\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZQOWxpPR1RbyD5ibBSxSpxSo3dYFpGopghEjPZ_=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                },\r\n                {\r\n                    \"id\": \"UgzZAz48TONaKrEvpfJ4AaABAg\",\r\n                    \"text\": \"This game will forever hold a special place in my heart. What a bittersweet masterpiece\",\r\n                    \"createdOn\": \"2024-01-23T18:16:19Z\",\r\n                    \"author\": {\r\n                        \"name\": \"@JarlRagnaar\",\r\n                        \"user_link\": \"http://www.youtube.com/@JarlRagnaar\",\r\n                        \"picture_link\": \"https://yt3.ggpht.com/EdK0wYTMXT389wW1pdXzqthM4_PcwxtvN1XoXqKRuc6W0GOvCLQr4HNDpY9XXQcrkk9VYYlfWxc=s48-c-k-c0x00ffffff-no-rj\"\r\n                    }\r\n                }\r\n            ],\r\n            \"captions\": [\r\n                {\r\n                    \"id\": \"AUieDaZZRlwrJvH9lbWXCdLBeeAQdXF7_p4HEh1NKbvR\",\r\n                    \"name\": \"\",\r\n                    \"language\": \"ar\"\r\n                }\r\n            ]\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "UC4zyoIAzmdsgpDZQfO1-lSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all channels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Returned response has only one element\", () => { pm.expect(jsonData.length).to.equal(1); })\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[0][\"id\"]).to.include(\"UC4zyoIAzmdsgpDZQfO1-lSA\"); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get filtered channels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Returned response has only one element\", () => { pm.expect(jsonData.length).to.equal(1); })\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[0][\"id\"]).to.include(\"UC4zyoIAzmdsgpDZQfO1-lSA\"); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels?name=Cyberpunk 2077",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Cyberpunk 2077"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all channels with paging",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"\r",
+									"pm.test(\"Returned response has only one element\", () => { pm.expect(jsonData.length).to.equal(1); })\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[0][\"id\"]).to.include(\"UC4zyoIAzmdsgpDZQfO1-lSA\"); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels?page=0&size=1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"UC4zyoIAzmdsgpDZQfO1-lSA\"); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "UC4zyoIAzmdsgpDZQfO1-lSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get nonexistent channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () => { pm.response.to.have.status(204); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "UC4zyoIAzmdsgpDZQfO1-lSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ordered channels",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"var isSorted = true;\r",
+									"for (var i = 1; i < jsonData.length; i++) {\r",
+									"    if (jsonData[i].createdTime > jsonData[i - 1].createdTime) {\r",
+									"        isSorted = false;\r",
+									"        break;\r",
+									"    }\r",
+									"}\r",
+									"pm.test(\"Elements are sorted by createdTime in descending order\", function() {\r",
+									"    pm.expect(isSorted).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels?order=-createdTime",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels"
+							],
+							"query": [
+								{
+									"key": "order",
+									"value": "-createdTime"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "Get all videos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has five elements\", () => { pm.expect(jsonData.length).to.equal(5); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get filtered videos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has five elements\", () => { pm.expect(jsonData.length).to.equal(1); })\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[0][\"id\"]).to.include(\"U8qJc6znzZc\"); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos?name=Cyberpunk 2077 — Seize the Day",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Cyberpunk 2077 — Seize the Day"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get ordered videos",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has five elements\", () => { pm.expect(jsonData.length).to.equal(5); })\r",
+									"\r",
+									"var isSorted = true;\r",
+									"for (var i = 1; i < jsonData.length; i++) {\r",
+									"    if (jsonData[i].releaseTime > jsonData[i - 1].releaseTime) {\r",
+									"        isSorted = false;\r",
+									"        break;\r",
+									"    }\r",
+									"}\r",
+									"\r",
+									"pm.test(\"Elements are sorted by releaseTime in descending order\", function() {\r",
+									"    pm.expect(isSorted).to.be.true;\r",
+									"});"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos?page=0&size=10&order=-releaseTime",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "0"
+								},
+								{
+									"key": "size",
+									"value": "10"
+								},
+								{
+									"key": "order",
+									"value": "-releaseTime"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all videos with paging",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has five elements\", () => { pm.expect(jsonData.length).to.equal(2); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos?page=1&size=2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "size",
+									"value": "2"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get videos of channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has five elements\", () => { pm.expect(jsonData.length).to.equal(5); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels/:id/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels",
+								":id",
+								"videos"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "UC4zyoIAzmdsgpDZQfO1-lSA"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get videos of nonexistent channel",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/channels/:id/videos",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"channels",
+								":id",
+								"videos"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"U8qJc6znzZc\"); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "U8qJc6znzZc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Put video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () => { pm.response.to.have.status(204); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"id\": \"U8qJc6znzZc\",\r\n    \"name\": \"Gamberro Cibernetico 2077 — Carpe Diem\",\r\n    \"description\": \"Check out the new Cyberpunk 2077 commercial starring Keanu Reeves! Cyberpunk 2077, an open-world, action-adventure story ...\",\r\n    \"releaseTime\": \"2020-10-01T07:59:35Z\",\r\n    \"comments\": [\r\n        {\r\n            \"id\": \"UgyXzAM8ZVmReWXGzZZ4AaABAg\",\r\n            \"text\": \"If 2.0 was 1.0 this game wouldve defied the gravitational pull of the whole universe\",\r\n            \"createdOn\": \"2023-11-23T23:27:38Z\",\r\n            \"author\": {\r\n                \"id\": 41,\r\n                \"name\": \"@nliosofficial4272\",\r\n                \"user_link\": \"http://www.youtube.com/@nliosofficial4272\",\r\n                \"picture_link\": \"https://yt3.ggpht.com/ytc/AIf8zZTLZC0OLs2GjnirArEfmSchSwLNlCzgZGyee8g8NQ=s48-c-k-c0x00ffffff-no-rj\"\r\n            }\r\n        },\r\n        {\r\n            \"id\": \"Ugzf8XiaOucjS0jsiAJ4AaABAg\",\r\n            \"text\": \"i remember seeing this trailer on TV and been wanting to play it on a PS5 ever since. just completed the story + phantom liberty few weeks back. i really love cyberpunk and the entire genre dystopia. easily my favourite game ever\",\r\n            \"createdOn\": \"2023-10-30T12:09:19Z\",\r\n            \"author\": {\r\n                \"id\": 42,\r\n                \"name\": \"@wrxlth\",\r\n                \"user_link\": \"http://www.youtube.com/@wrxlth\",\r\n                \"picture_link\": \"https://yt3.ggpht.com/fiRmHeOAE2UVonxV3HjfKdR6Cr5Cl14eDVsMjwGYuN4Eaf6OxsDWvW_QGRu98YDk6_gFxIfk=s48-c-k-c0x00ffffff-no-rj\"\r\n            }\r\n        }\r\n    ],\r\n    \"captions\": [\r\n        {\r\n            \"id\": \"AUieDaaK3kB8K8SywqeHvjWEmxwQozpP3boqD_mNW0L_LogrTyY\",\r\n            \"name\": \"\",\r\n            \"language\": \"en\"\r\n        },\r\n        {\r\n            \"id\": \"AUieDaZoQwnH9B7TX-kjJsFI0dUsHBT7Snvx1Grpn3qY\",\r\n            \"name\": \"\",\r\n            \"language\": \"de\"\r\n        },\r\n        {\r\n            \"id\": \"AUieDabLhwMNJw0xx3dd5RIXXa1iwiMse8npwUrooI6v\",\r\n            \"name\": \"\",\r\n            \"language\": \"en\"\r\n        },\r\n        {\r\n            \"id\": \"AUieDaYJ5oCG0DQLMznssVtsRo3Mj1L1CRomG-8QgUh6\",\r\n            \"name\": \"\",\r\n            \"language\": \"es\"\r\n        }\r\n    ]\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "U8qJc6znzZc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 204\", () => { pm.response.to.have.status(204); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "U8qJc6znzZc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get nonexistent video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caption",
+			"item": [
+				{
+					"name": "Get all captions",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has six elements\", () => { pm.expect(jsonData.length).to.equal(6); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/captions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"captions"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get caption",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"AUieDaaK3kB8K8SywqeHvjWEmxwQozpP3boqD_mNW0L_LogrTyY\"); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/captions/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"captions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "AUieDaaK3kB8K8SywqeHvjWEmxwQozpP3boqD_mNW0L_LogrTyY"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get nonexistent caption",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/captions/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"captions",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get captions of video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has six elements\", () => { pm.expect(jsonData.length).to.equal(4); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id/captions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id",
+								"captions"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "U8qJc6znzZc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get captions of nonexistent video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id/captions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id",
+								"captions"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "Get all comments",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has ten elements\", () => { pm.expect(jsonData.length).to.equal(10); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"comments"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.include(\"Ugzf8XiaOucjS0jsiAJ4AaABAg\"); })"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/comments/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "Ugzf8XiaOucjS0jsiAJ4AaABAg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get nonexistent comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/comments/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"comments",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comments of video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"pm.test(\"Returned response has ten elements\", () => { pm.expect(jsonData.length).to.equal(2); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "U8qJc6znzZc"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get comments of nonexistent video",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/videos/:id/comments",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"videos",
+								":id",
+								"comments"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "Get all users",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.equal(8); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "8"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get nonexistent user",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/users/:id",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"users",
+								":id"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "-1"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user of comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 200\", () => { pm.response.to.have.status(200); });\r",
+									"\r",
+									"var jsonData = pm.response.json();\r",
+									"\r",
+									"pm.test(\"id property should have specific value\", () => { pm.expect(jsonData[\"id\"]).to.equal(12); })"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/comments/:id/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"comments",
+								":id",
+								"user"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "Ugzf8XiaOucjS0jsiAJ4AaABAg"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get user of nonexistent comment",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Status code is 404\", () => { pm.response.to.have.status(404); });\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/videominer/comments/:id/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"videominer",
+								"comments",
+								":id",
+								"user"
+							],
+							"variable": [
+								{
+									"key": "id",
+									"value": "falseid"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

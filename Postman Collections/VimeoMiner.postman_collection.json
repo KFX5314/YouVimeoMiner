@@ -1,0 +1,388 @@
+{
+	"info": {
+		"_postman_id": "19df694e-0c61-4367-8b0a-11ce812e2e1f",
+		"name": "VimeoMiner",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "33752056",
+		"_collection_link": "https://warped-meteor-325341.postman.co/workspace/proyecto-aiss~7cd4fe6d-c0d6-4e43-8848-724aacafaccf/collection/33751621-19df694e-0c61-4367-8b0a-11ce812e2e1f?action=share&source=collection_link&creator=33752056"
+	},
+	"item": [
+		{
+			"name": "Channel",
+			"item": [
+				{
+					"name": "all channels",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/channels",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"channels"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "channel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/channels/sundanceshorts",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"channels",
+								"sundanceshorts"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Video",
+			"item": [
+				{
+					"name": "all videos from user",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/users/paultrillo/videos",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"users",
+								"paultrillo",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "all videos from channel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/channels/sundanceshorts/videos",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"channels",
+								"sundanceshorts",
+								"videos"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "video from channel",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/channels/sundanceshorts/videos/898953374",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"channels",
+								"sundanceshorts",
+								"videos",
+								"898953374"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/videos/898953374",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"videos",
+								"898953374"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Caption",
+			"item": [
+				{
+					"name": "all captions from video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/videos/898953374/texttracks",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"videos",
+								"898953374",
+								"texttracks"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "caption from video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/videos/898953374/texttracks/126987019",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"videos",
+								"898953374",
+								"texttracks",
+								"126987019"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Comment",
+			"item": [
+				{
+					"name": "all comments from video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/videos/898953374/comments?page=1&per_page=10",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"videos",
+								"898953374",
+								"comments"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "per_page",
+									"value": "10"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "comment from video",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+							}
+						],
+						"url": {
+							"raw": "https://api.vimeo.com/videos/898953374/comments/20493363",
+							"protocol": "https",
+							"host": [
+								"api",
+								"vimeo",
+								"com"
+							],
+							"path": [
+								"videos",
+								"898953374",
+								"comments",
+								"20493363"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Test Get channel controller",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/vimeominer/channels/sundanceshorts?maxVideos=2&maxComments=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vimeominer",
+						"channels",
+						"sundanceshorts"
+					],
+					"query": [
+						{
+							"key": "maxVideos",
+							"value": "2"
+						},
+						{
+							"key": "maxComments",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Test de POST channel",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer 3f762ed847d6f0ab92886c953e5481de"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/vimeominer/channels/:id?maxVideos=10&maxComments=10",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"vimeominer",
+						"channels",
+						":id"
+					],
+					"query": [
+						{
+							"key": "maxVideos",
+							"value": "10"
+						},
+						{
+							"key": "maxComments",
+							"value": "10"
+						}
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "1189212"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
